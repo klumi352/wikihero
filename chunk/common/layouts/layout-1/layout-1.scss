@@ -1,0 +1,64 @@
+.wrapper {
+  @include fluid-size('margin-top', 150px, 165px);
+  @include fluid-size('margin-bottom', 60px, 140px);
+  display: flex;
+  min-height: 100vh;
+
+  &.noAsideHidden {
+    @include media-to(md) {
+      min-height: auto;
+      flex-direction: column-reverse;
+    }
+  }
+
+  &.paddingMin {
+    @include fluid-size('margin-top', 107px, 165px);
+  }
+
+  &.noMinHeight {
+    min-height: initial;
+    margin-bottom: 0;
+  }
+
+  &.nestedLayout {
+    margin-top: 0;
+  }
+
+  &.lastOne {
+    @include fluid-size('margin-bottom', 60px, 140px);
+  }
+}
+
+.l-col {
+  width: 100%;
+
+  /deep/h1 {
+    max-width: none;
+  }
+
+  @include media-from(md) {
+    margin-right: 60px;
+    max-width: calc(100% - 460px);
+  }
+}
+
+.r-col {
+  display: none;
+
+  .wrapper.noAsideHidden & {
+    display: block;
+  }
+
+  > ::v-deep* {
+    // TODO return if needs
+
+    // position: sticky;
+    // top: 100px;
+  }
+
+  @include media-from(md) {
+    display: block;
+    width: 400px;
+    min-width: 400px;
+  }
+}

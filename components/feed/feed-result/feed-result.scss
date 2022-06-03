@@ -1,0 +1,23 @@
+.feed {
+  &__last-week,
+  &__rest-of-month {
+    margin-top: 35px;
+  }
+
+  &__pagination {
+    text-align: center;
+    margin-top: 25px;
+  }
+
+  &__section-header {
+    @include fluid-size('font-size', 22px, 27px);
+    font-weight: 500;
+    color: #292929;
+  }
+}
+
+.post__list__noResult,
+.feed__current-week__noResult {
+  margin-top: 10px;
+  text-align: center;
+}

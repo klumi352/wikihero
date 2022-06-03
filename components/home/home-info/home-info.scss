@@ -1,0 +1,50 @@
+.container {
+  @include fluid-size('margin-top', 80px, 120px);
+  @include fluid-size('margin-bottom', 80px, 120px);
+  
+  @include default-observer;
+}
+
+.items {
+  padding: 20px 0;
+}
+
+.item {
+  &:not(:last-child) {
+    margin-bottom: 40px;
+
+    @include media-to(sm) {
+      margin-bottom: 70px;
+    }
+  }
+
+  @include media-from(sm) {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+.intro {
+  padding-top: 20px;  
+
+  @include media-from(sm) {
+    padding-top: 10px;
+  }
+}
+
+.image-wrapper {
+  margin-right: 60px;
+
+  @include media-to(sm) {
+    margin-right: 0;
+    padding: 0 20px;
+  }
+}
+
+img {
+  object-fit: contain;
+
+  @include media-to(sm) {
+    width: 100%;
+  }
+}

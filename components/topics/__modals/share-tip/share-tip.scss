@@ -1,0 +1,22 @@
+.wrapper {
+  margin: 40px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+li {
+  border-bottom: 1px solid var(--c-grey-light);
+
+  &:first-child {
+    border-top: 1px solid var(--c-grey-light);    
+  }
+}
+
+.btn {
+  display: flex;
+  margin: 0 -10px;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% + 20px);
+  padding: 30px 10px;
+}

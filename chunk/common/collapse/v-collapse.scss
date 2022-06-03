@@ -1,0 +1,78 @@
+.container {
+  @include default-observer;
+}
+
+.item {
+  &:last-child {
+    .title {
+      border-bottom: 1px solid var(--c-grey-light);
+    }
+  }
+  
+  &.active {
+    .title {
+      border-bottom: none;
+    }
+  }
+}
+
+.descr {
+  position: relative;
+  height: 0;
+  opacity: 1;
+  transform-origin: top left;
+  overflow: hidden;
+  transition: all 0.5s;
+  transform: translateY(20px);
+
+  .item:not(.active) & {
+    opacity: 0;
+  }
+
+  .item.active & {
+    transform: none;
+  }
+
+  span {
+    display: block;
+    margin: 0 0 30px;
+  }  
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%) rotate(-90deg);
+  transition: all 0.4s;
+
+  .item.active & {
+    transform: translateY(-50%) rotate(0deg);
+  }
+}
+
+.title {
+  user-select: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding: 35px 0;
+  padding-right: 50px;
+  border-top: 1px solid var(--c-grey-light);
+  transition: all 0.4s;
+  font-family: $f-medium;
+
+  @include hover-state {
+      color: var(--c-brand);
+  }
+
+  @include active-state {
+    opacity: 0.8;
+  }
+
+  .item.active & {
+    color: var(--c-brand);
+  }
+}

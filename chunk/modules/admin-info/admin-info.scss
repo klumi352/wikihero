@@ -1,0 +1,33 @@
+.only-tablet {
+  margin: 50px 0 60px;
+
+  // @include media-from(md) {
+  //   display: none;
+  // }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  @include in-observer {
+    opacity: 0;
+  }
+
+  @include in-observer-vis {
+    opacity: 1;
+  }
+}
+
+.title {
+  margin-top: 10px;
+  line-height: 1;
+}
+
+.col {
+  width: 33%;
+  
+  &:not(:first-child):not(:last-child) {
+    margin: 0 10px;
+  }
+}

@@ -1,0 +1,38 @@
+image: node
+stages:
+  - build
+  - test
+  - deploy
+
+cache:
+  paths:
+  - node_modules/
+
+deploy-staging:
+  stage: deploy
+  only  :
+   - master
+  tags:
+    - staging 
+
+  script:
+   - npm install
+   - npm run build:staging
+   - rsync -a --progress . /var/www/site 
+   - cd /var/www/site && ls -la
+   - pm2 restart ecosystem.config.js --only staging
+
+deploy-production:
+  stage: deploy
+  only:
+   - production
+  tags:
+    - production 
+
+  script:
+   - yarn
+   - yarn build
+   # now it working on build directory because there is no free disc space
+   # rsync -a --progress . /var/www/html 
+   # cd /var/www/html && ls -la
+   - pm2 restart ecosystem.config.js --only staging

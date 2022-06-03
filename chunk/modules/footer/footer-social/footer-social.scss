@@ -1,0 +1,15 @@
+.footer-social {
+  display: flex;
+
+  @include media-to(sm) {
+    margin-top: 40px;
+    justify-content: center;
+  }
+}
+
+.link {
+
+  svg, /deep/path {
+    fill: var(--c-black);
+  }
+}

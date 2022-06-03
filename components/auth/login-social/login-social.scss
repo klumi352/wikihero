@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  @include media-to(sm) {
+    justify-content: flex-end;
+  }
+}
+
+button {
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+
+    @include media-from(sm) {
+      margin-right: 15px;
+    }
+  }
+}

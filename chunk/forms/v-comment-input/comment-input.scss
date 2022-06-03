@@ -1,0 +1,160 @@
+.post-comment {
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+  .top-wrap & {
+    margin-bottom: 0;
+  }
+
+  &__wrap {
+    position: relative;
+    padding-left: 50px;
+
+    .useInComment & {
+      padding-left: 0;
+    }
+
+    // @include media-to(xs) {
+    //   padding-left: 0;
+    // }
+  }
+
+  &__comment-btn-wrap {
+    margin-top: 15px;
+  }
+
+  &__inputs-wrap {
+    margin-bottom: 15px;
+  }
+
+  &__checkbox-wrap {
+    margin-bottom: 35px;
+
+    span {
+      user-select: none;
+      font-size: 12px;
+      line-height: 14px;
+      color: rgba(0, 0, 0, 0.54);
+      justify-content: flex-start;
+      display: block;
+      width: 100%;
+      padding-left: 40px;
+    }
+
+    @include media-to(xs) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__comment-btn {
+    margin-right: 20px;
+
+    @include media-to(xs-mid) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__checkbox {
+    margin: 0 !important;
+    height: 29px;
+
+    /deep/ {
+      .controll {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__logged-wrap {
+    @include media-to(xs-mid) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__quill {
+    width: 100%;
+    border-radius: 3px;
+
+    &.quill {
+      padding: 0;
+      margin: 0;
+      min-height: auto;
+    }
+  }
+
+  &__avatar-wrap {
+    margin-bottom: 5px;
+  }
+
+  &__avatar {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    user-select: none;
+
+    // @include media-to(xs) {
+    //   position: initial;
+    // }
+  }
+
+  &__btn-wrap {
+    .useInComment & {
+      display: flex;
+      justify-content: space-between;
+      max-width: 300px;
+    }
+  }
+
+  &__guest-wrap {
+    margin: 5px 0 10px 0;
+  }
+
+  &__guest-txt {
+    @include fluid-size(font-size, 12px, 15px);
+    line-height: 1.13;
+    color: var(--c-overlay);
+  }
+
+  &__guest-link {
+    @include fluid-size(font-size, 12px, 15px);
+    line-height: 1.13;
+    color: var(--c-brand);
+  }
+
+  &__no-log-wrap {
+    @include media-to(xs) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__no-log-inputs {
+    max-width: 400px;
+    width: 100%;
+    margin-right: 10px;
+
+    .input-wrapper {
+      margin-top: 0;
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 25px;
+      }
+    }
+  }
+
+  &__no-log-txt {
+    font-size: 12px;
+    line-height: 1.16;
+    color: var(--c-overlay);
+  }
+
+  &__cansel-btn {
+    border: 2px solid transparent;
+  }
+}

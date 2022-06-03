@@ -1,0 +1,487 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  // padding: 22px 0;
+  height: 100px;
+  background-color: var(--c-white);
+  transition: height 0.3s;
+
+  .g-no-header & {
+    display: none;
+  }
+
+  .g-fixed & {
+    height: 80px;
+    // box-shadow: 0px 0px 17px -8px var(--c-grey);
+  }
+
+  html.backdropfilter:not(.overflow) & {
+    // background-color: var(--c-white-transparent);
+    // backdrop-filter: blur(8px) grayscale(1);
+
+    background-color: var(--c-white);
+  }
+
+  html.backdropfilter.overflow & {
+    @include media-from(sm) {
+      background-color: var(--c-white-transparent);
+      backdrop-filter: blur(8px) grayscale(1);
+    }
+  }
+
+  html.overflow:not(.touchevents) & {
+    padding-right: 12px;
+  }
+
+  &__triple-container {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1410px;
+  }
+
+  &__container-chunk {
+    width: 100%;
+    height: 100px;
+    transition: height 0.3s;
+
+    .g-fixed & {
+      height: 80px;
+    }
+
+    /deep/ {
+      .wrapper {
+        padding-left: 0;
+      }
+    }
+
+    &--control {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      .header.isSubtopicPage & {
+        @include media-to(xs) {
+          position: absolute;
+          top: 50%;
+          right: 15px;
+          transform: translate(0, -50%);
+
+          html.g-fixed & {
+            z-index: -1;
+            opacity: 0;
+            visibility: hidden;
+            transition-delay: 0s;
+          }
+        }
+      }
+    }
+
+    &--right-box {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+
+      @include media-to(lg-mid) {
+        display: none;
+      }
+    }
+
+    @include media-to(sm-extra) {
+      display: none;
+    }
+  }
+
+  &__search-hidden {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    display: none;
+
+    /deep/ {
+      .wrapper {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        width: max-content;
+      }
+    }
+
+    @include media-to(lg-mid) {
+      display: flex;
+    }
+
+    // @include media-to(xs) {
+    //   height: 56px;
+    //   width: 76px;
+    // }
+  }
+
+  &__container-main {
+    margin: 0 auto;
+    min-width: 788px;
+    max-width: 788px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding-small);
+    width: 100%;
+    transition: height 0.3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .g-fixed & {
+      height: 80px;
+    }
+    
+    &--wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 93%;
+
+      @include media-between(xs-plus, md) {
+        left: 55px;
+      }
+
+      @include media-to(xs) {
+        .header.isSubtopicPage & {
+          position: absolute;
+
+          html.g-fixed & {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translate(0, -50%);
+          }
+        }
+      }
+    }
+
+    @include media-from(sm) {
+      padding: 0 var(--container-padding);
+    }
+
+    @include media-to(sm-extra) {
+      max-width: 100%;
+      min-width: unset;
+    }
+  }
+
+  &__search-field {
+    display: flex;
+    align-items: center;
+
+    /deep/ {
+      .header-search {
+        margin-right: 0;
+      }
+    }
+
+    .header.isSubtopicPage & {
+      @include media-to(xs) {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translate(0, -50%);
+  
+        html.g-fixed & {
+          z-index: -1;
+          opacity: 0;
+          visibility: hidden;
+          transition-delay: 0s;
+        }
+      }
+    }
+  }
+}
+
+.modificator {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  width: 100%;
+
+  .header.isSubtopicPage & {
+    height: 55px;
+  }
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 93%;
+
+  // .header__search-hidden {
+  //   width: max-content;
+  // }
+
+  @include media-to(xs) {
+    .header.isSubtopicPage & {
+      position: absolute;
+
+      html.g-fixed & {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translate(0, -50%);
+      }
+    }
+  }
+
+  @include media-between(xs-plus, lg-plus) {
+    padding-left: 55px;
+  }
+}
+
+.logo-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 55px;
+  padding: 8px;
+  padding: 0;
+  font-size: 0;
+  text-decoration: none;
+  vertical-align: middle;
+  background: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  width: 50px;
+  transition: all 0.2s;
+
+  html.g-aside-nav & {
+    visibility: hidden;
+    opacity: 0;
+    transition: none;
+  }
+
+  html.g-search & {
+    .logo-txt {
+      display: none;
+    }
+  }
+
+  .header.isSubtopicPage & {
+    &.with-topic {
+      position: absolute;
+      z-index: -1;
+      width: 90%;
+      overflow: hidden;
+      opacity: 0;
+
+      .logo-txt {
+        display: block;
+      }
+
+      .logo-txt:hover {
+        color: var(--c-black);
+      }
+
+      .logo-txt:active {
+        opacity: 1;
+      }
+
+      @include media-between(xs-plus, lg-plus) {
+        left: 55px;
+      }
+
+      @include media-to(xs) {
+        width: 100%;
+      }
+
+      html.g-fixed & {
+        z-index: 10;
+        opacity: 1;
+        transition-delay: 0s;
+
+        @include media-to(xs) {
+          z-index: 10;
+          text-align: center;
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+
+      html.g-fixed.g-aside-nav & {
+        z-index: 10;
+        visibility: visible;
+        opacity: 1;
+        transition-delay: 0s;
+      }
+    }
+
+    &.with-label {
+      position: absolute;
+      z-index: -1;
+      width: 90%;
+      overflow: hidden;
+      opacity: 0;
+
+      .logo-txt {
+        display: block;
+      }
+
+      .logo-txt:hover {
+        color: var(--c-black);
+      }
+
+      .logo-txt:active {
+        opacity: 1;
+      }
+
+      @include media-to(sm-lg) {
+        width: 86%;
+      }
+
+      @include media-to(xs) {
+        width: 100%;
+      }
+
+      html.g-fixed & {
+        z-index: 10;
+        opacity: 1;
+        transition-delay: 0s;
+
+        @include media-to(xs) {
+          z-index: 10;
+          text-align: center;
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+
+      html.g-fixed.g-aside-nav & {
+        z-index: 10;
+        visibility: visible;
+        opacity: 1;
+        transition-delay: 0s;
+      }
+    }
+
+    &.with-logo {
+      z-index: 10;
+      visibility: visible;
+      opacity: 1;
+
+      html.g-aside-nav & {
+        visibility: hidden;
+        opacity: 0;
+        transition: none;
+      }
+
+      html.g-fixed & {
+        z-index: -1;
+        visibility: hidden;
+        opacity: 0;
+        transition-delay: 0s;
+      }
+
+      .g-aside-nav & {
+        @include media-between(res-1400, xl-min) {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
+
+.logo-txt {
+  position: relative;
+  margin-left: 15px;
+  color: var(--c-black);
+  font-size: 25px;
+  font-family: $f-medium;
+  transition: all 1s;
+  user-select: none;
+
+  .with-topic & {
+    max-width: 100%;
+    margin-left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    @include media-to(sm) {
+      margin: 0 auto;
+    }
+  }
+
+  .with-label & {
+    max-width: 100%;
+    margin-left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    @include media-to(sm) {
+      margin: 0 auto;
+    }
+  }
+
+  @include media-to(sm) {
+    display: none;
+  }
+
+  .nuxt-link-exact-active & {
+    color: var(--c-brand);
+  }
+
+  @include hover-state {
+    color: var(--c-brand);
+    transition: all 0.1s;
+  }
+
+  @include active-state {
+    opacity: 0.85;
+  }
+}
+
+.beta {
+  position: absolute;
+  bottom: -1.4em;
+  left: -0.05em;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3em 0.6em;
+  color: var(--c-white);
+  font-size: 15px;
+  font-family: $f-regular;
+  line-height: 1;
+  background-color: var(--c-brand);
+  border-radius: 8px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s 0.3s var(--t-bounce);
+
+  .g-fixed &,
+  html.g-aside-nav & {
+    transform: translateY(-100%) scale(0);
+    opacity: 0;
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+  }
+}
+
+.fill {
+  width: 45px;
+  height: 45px;
+  overflow: visible;
+
+  /deep/ {
+    path {
+      opacity: 1;
+      fill: var(--c-brand);
+    }
+  }
+}

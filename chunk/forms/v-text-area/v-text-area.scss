@@ -1,0 +1,49 @@
+.area-input {
+  width: 100%;
+  resize: none;
+  border: 1px solid #C4C4C4;
+  border-radius: 3px;
+  padding: 10px 10px;
+  line-height: 26px;
+  letter-spacing: -0.01em;
+  color: var(--c-black);
+  @include fluid-size(font-size, 16px, 20px);
+  transition: all 0.2s;
+
+  &::placeholder {
+    color: var(--c-black);  
+  }
+
+  &:focus {
+    border: 1px solid var(--c-brand);
+
+    &::placeholder {
+      opacity: 0.4;
+    }
+  }
+
+  &.error {
+    border: 1px solid var(--c-error);
+
+    &:focus {
+      border: 1px solid var(--c-error);
+    }
+  }
+
+  // @include media-to(xs-mid) {
+  //   padding: 5px;
+  // }
+}
+
+.message-error {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--c-error);
+  font-size: 14px;
+  font-family: $f-regular;
+  line-height: 1.3;
+  transition: all 0.15s var(--t-bounce);
+  user-select: none;
+  padding-top: 3px;
+}

@@ -1,0 +1,60 @@
+.vue-notification-group {
+  width: 100vw!important;
+  top: auto!important;
+  bottom: 0!important;
+  right: 0!important;
+  z-index: 100001!important;
+
+  @include media-from(sm) {    
+    width: 400px !important;
+    bottom: 5px !important;
+    right: 5px !important;
+    width: 400px !important;
+  }
+}
+
+.vue-notification-wrapper {
+  overflow: visible!important;
+}
+
+.g-notify {
+  padding: 14px;
+  box-shadow: 0px 0px 10px -5px var(--c-grey-dark);
+
+  @include media-from(sm) {
+    padding: 20px;
+  }
+
+  .notification-title {
+    @include fluid-size("font-size", 20px, 22px);
+    margin-bottom: 5px;
+    color: var(--c-success);
+    font-family: $f-medium;
+  }
+
+  .notification-content {
+    @include fluid-size("font-size", 16px, 18px);
+    font-family: $f-regular;
+  }
+
+  &.basic {
+    .notification-title {    
+      color: var(--c-brand);
+    }
+  
+    .notification-content {
+      color: var(--c-grey-dark);
+    }
+  }
+
+  &.error {
+
+    .notification-title {    
+      color: var(--c-error);
+    }
+  
+    .notification-content {
+      color: var(--c-error);
+    }
+  }
+}

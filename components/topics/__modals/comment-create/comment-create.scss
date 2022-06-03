@@ -1,0 +1,84 @@
+.create-comment-popup {
+  position: relative;
+
+  @include media-to(md) {
+    flex-direction: column;
+  }
+
+  &__content {
+    &-title {
+      margin-bottom: 2px;
+      letter-spacing: 0.01em;
+      color: #292929;
+    }
+
+    &-subtitle {
+      margin: 0;
+      color: rgba(0, 0, 0, 0.54);
+    }
+
+    &-content {
+      max-width: 410px;
+      color: #292929;
+      margin-top: 85px;
+
+      &--last {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      @include media-to(xs-mid) {
+        margin-top: 50px;
+
+        &--last {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  &__btn-wrap {
+
+    margin-top: 130px;
+
+    @include media-to(xs-mid) {
+      justify-content: space-between;
+      margin-top: 70px;
+    }
+  }
+
+  &__close {
+    margin-right: 140px;
+
+    @include media-to(xs-mid) {
+      margin-right: 0;
+    }
+  }
+
+  &__pic {
+    display: block;
+    z-index: 1;
+    width: 100%;
+    max-width: 450px;
+    max-height: 450px;
+    -o-object-position: bottom right;
+    object-position: bottom right;
+    margin: 50px auto 0;
+    position: absolute;
+    top: auto;
+    left: auto;
+    right: -50px;
+    bottom: -50px;
+
+    @include media-to(md) {
+      max-width: 420px;
+      max-height: 350px;
+      position: static;
+    }
+
+    @include media-to(xs) {
+      max-width: 320px;
+      max-height: 320px;
+    }
+  }
+}

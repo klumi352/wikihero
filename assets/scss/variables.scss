@@ -1,0 +1,58 @@
+:root {
+  --c-brand: #{$c-brand};
+  --app-height: 100%;
+  --c-brand-transparent: #{$c-brand-transparent};
+  --c-brand-light: #{$c-brand-light};
+  --c-brand-middlelight: #{$c-brand-middlelight};
+  --c-brand-superlight: #{$c-brand-superlight};
+  --c-brand-dark: #{$c-brand-dark};
+  --c-brand-superdark: #{$c-brand-superdark};
+
+  --c-grey: #{$c-grey};
+  --c-grey-dark: #{$c-grey-dark};
+  --c-grey-superdark: #{$c-grey-superdark};
+  --c-grey-light: #{$c-grey-light};
+  --c-grey-light-1: #{$c-grey-light-1};
+  --c-grey-light-2: #{$c-grey-light-2};
+  --c-grey-light-3: #{$c-grey-light-3};
+  --c-grey-superlight: #{$c-grey-superlight};
+  --c-grey-superlight-1: #{$c-grey-superlight-1};
+  --c-grey-for-scroll: #{$c-grey-for-scroll};
+
+  --c-overlay: #{$c-overlay};
+  --c-overlay-light: #{$c-overlay-light};
+  --c-overlay-superlight: #{$c-overlay-superlight};
+
+  --c-preloader: #{$c-preloader};
+
+  --c-white: #{$c-white};
+  --c-white-transparent: #{$c-white-transparent};
+  --c-black: #{$c-black};
+
+  --c-info: #{$c-info};
+  --c-info-transparent: #{$c-info-transparent};
+  --c-info-transparent-light: #{$c-info-transparent-light};
+
+  --c-error: #{$c-error};
+  --c-error-transparent: #{$c-error-transparent};
+  --c-error-transparent-light: #{$c-error-transparent-light};
+
+  --c-success: #{$c-success};
+  --c-success-transparent: #{$c-success-transparent};
+  --c-success-transparent-light: #{$c-success-transparent-light};
+
+  --c-gold: #{$c-gold};
+
+  --t-main: #{$t-main};
+  --t-light: #{$t-light};
+  --t-secondary: #{$t-secondary};
+  --t-bounce: #{$t-bounce};
+  --t-all-02: #{$t-all-02};
+
+  --site-min-width: #{$site-min-width};
+  --site-max-width: #{$site-max-width};
+
+  --container-size: #{$container-size};
+  --container-padding: #{$container-padding};
+  --container-padding-small: #{$container-padding-small};
+}

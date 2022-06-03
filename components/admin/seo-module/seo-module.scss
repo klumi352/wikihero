@@ -1,0 +1,12 @@
+.wrapper {
+  margin-top: 30px;
+  padding: 30px 30px 10px;
+  background-color: var(--c-info-transparent);
+
+  @include media-to(xs) {
+    padding: 20px 20px 1px;
+
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+}

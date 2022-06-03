@@ -1,0 +1,67 @@
+$t: transparent;
+$tw: rgba(white, 0);
+$tb: rgba(black, 0);
+
+$f-regular: 'UbuntuRegular';
+$f-bold: 'UbuntuBold', sans-serif;
+$f-medium: 'UbuntuMedium', sans-serif;
+$f-paragraph: 'SourceSerifPro-Regular', sans-serif;
+
+$site-min-width: 370px;
+$site-max-width: 1440px;
+
+$container-size: 1210px;
+$container-padding: 20px;
+$container-padding-small: 15px;
+
+$c-brand: #7417ea;
+$c-brand-transparent: rgba(#7417ea, 0);
+$c-brand-light: rgb(147, 68, 251);
+$c-brand-middlelight: rgb(212, 180, 255);
+$c-brand-superlight: rgb(246, 239, 255);
+$c-brand-dark: rgb(97, 22, 195);
+$c-brand-superdark: rgb(43, 6, 92);
+
+$c-grey: rgb(163, 163, 163);
+$c-grey-dark: #757575;
+$c-grey-superdark: #464646;
+$c-grey-light: #e3e3e3;
+$c-grey-light-1: #e2e2e2;
+$c-grey-light-2: #fcfcfc;
+$c-grey-light-3: #c4c4c4;
+$c-grey-superlight: #f5f5f5;
+$c-grey-superlight-1: #ECEEFA;
+$c-grey-for-scroll: #c2c2c2;
+
+$c-overlay: #{rgba(black, 0.6)};
+$c-overlay-light: #{rgba(black, 0.3)};
+$c-overlay-superlight: #{rgba(white, 0.6)};
+
+$c-preloader: #{rgba(white, 0.8)};
+
+$c-white: #ffffff;
+$c-white-transparent: #{rgba(255, 255, 255, 0.8)};
+$c-black: #292929;
+
+$c-info: rgb(255, 227, 67);
+$c-info-transparent: #{rgba(rgb(255, 227, 67), 0.15)};
+$c-info-transparent-light: #{rgba(rgb(255, 227, 67), 0.07)};
+
+$c-error: #e26839;
+$c-error-transparent: #{rgba(rgb(226, 57, 57), 0.15)};
+$c-error-transparent-light: #{rgba(rgb(226, 57, 57), 0.07)};
+
+$c-success: #32ad13;
+$c-success-transparent: #{rgba(rgb(54, 189, 21), 0.15)};
+$c-success-transparent-light: #{rgba(rgb(54, 189, 21), 0.07)};
+
+$c-gold: gold;
+
+$t-main: cubic-bezier(0.17, 0.5, 0.175, 1);
+$t-light: ease-out;
+$t-secondary: ease-in-out;
+$t-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+/* add some transitions */
+
+$t-all-02: all 0.2s;

@@ -1,0 +1,70 @@
+.filter-tabs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &__tabs {
+    @include media-to(xs) {
+      display: none;
+    }
+
+    ul {
+      li {
+        button {
+          padding: 3px;
+          color: #292929;
+
+          @include fluid-size(font-size, 13px, 15px);
+
+          line-height: 17px;
+          letter-spacing: 0px;
+          text-transform: unset;
+
+          &.active {
+            color: var(--c-brand-light);
+            background-color: transparent;
+            border-color: transparent;
+          }
+        }
+      }
+    }
+  }
+
+  .mobile-filter {
+    &-select {
+      display: none !important;
+      margin: 0;
+
+      @include media-to(xs) {
+        display: block !important;
+      }
+
+      ::v-deep {
+        .select__btn {
+          padding-left: 0;
+          color: var(--c-brand);
+          background-color: transparent;
+          border: 0;
+        }
+
+        .arrow:not(.close) {
+          display: block !important;
+
+          path {
+            fill: #000 !important;
+          }
+        }
+
+        .close.arrow {
+          display: none !important;
+        }
+      }
+    }
+
+    &-tags {
+      @include media-to(xs) {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,205 @@
+.search-bar {
+  &__type-result-dropdown {
+    position: relative; 
+    transition: all 0.2s;
+    display: inline-flex;
+  }
+
+  &__type-result-btn {
+    width: 100%;
+    border: 1px solid #C4C4C4;
+    max-width: 170px;
+    border-radius: 30px;
+    background-color: var(--c-white);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 6px 35px 6px 15px;
+    font-size: 15px;
+    line-height: 17px;
+    color: var(--c-black);
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &.setCount {
+      padding-right: 50px;
+      
+      span {
+        position: absolute;
+        right: 30px;
+      }
+    }
+
+    .openTypeResultDropdown &, &.selectedTitle {
+      background-color: var(--c-brand);
+      border: 1px solid var(--c-brand);
+      color: var(--c-white);
+
+      /deep/ {
+        .search-bar__type-result-btn-arrow {
+          path {
+            fill: var(--c-white);
+          }
+        }
+
+        .search-bar__type-result-btn-cross {
+          path {
+            fill: var(--c-white);
+          }
+        }
+      }
+    }
+    
+    &:hover {
+      background-color: var(--c-brand);
+      border: 1px solid var(--c-brand);
+      color: var(--c-white);
+
+      /deep/ {
+        .search-bar__type-result-btn-arrow {
+          path {
+            fill: var(--c-white);
+          }
+        }
+
+        .search-bar__type-result-btn-cross {
+          path {
+            fill: var(--c-white);
+          }
+        }
+      }
+    }
+  }
+
+  &__type-result-btn-arrow {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: rotate(0deg) translateY(-50%);
+    transition: all 0.2s;
+
+    path {
+      transition: all 0.2s;
+    }
+    
+    .openTypeResultDropdown & {
+      transform: translateY(-50%) rotate(-180deg);
+    }
+
+    .showDeleteButton & {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  &__type-result-btn-cross {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: rotate(0deg) translateY(-50%);
+    transition: all 0.2s;
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    visibility: hidden;
+
+    path {
+      transition: all 0.2s;
+    }
+
+    .showDeleteButton & {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__type-result-modal {
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--c-grey-light-2);
+    border: 1px solid var(--c-grey-light-1);
+    border-top-color: var(--c-grey-light-3);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    transform: translateY(95%);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s 0.1s var(--t-bounce);
+    width: 300px;
+    z-index: 10;
+
+    .openTypeResultDropdown & {
+      transform: translateY(100%);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__type-result-dropdown-list {
+    padding: 10px 0;
+  }
+
+  &__type-result-dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+
+    /deep/ {
+      .input-wrapper.radio.with-checkbox {
+        display: flex;
+        align-items: center;
+        margin: 0 5px 0 0;
+      }
+    }
+    
+    label {
+      overflow: hidden;
+      color: var(--c-black);
+      font-size: 15px;
+      line-height: 17px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      display: flex;
+      flex-direction: row-reverse;
+      flex-grow: 1;
+      justify-content: flex-end;
+      cursor: pointer;
+      align-items: center;
+    }
+
+    .radio {
+      position: relative;
+      margin-top: 0;
+      margin-right: 5px;
+      margin-bottom: 0;
+      display: flex;
+
+      /deep/ {
+        .controll {
+          margin-right: 0;
+          width: 15px;
+          height: 15px;
+          transition: all 0.2s;
+        }
+        .ico--correct {
+          width: 9px;
+          height: 9px;
+        }
+      }
+    }
+  }
+
+  &__type-result-validate-button {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--c-brand);
+    padding: 12px 25px;
+    border-top: 1px solid #E2E2E2;
+    cursor: pointer;
+  }
+}

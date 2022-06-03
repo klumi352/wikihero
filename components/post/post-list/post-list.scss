@@ -1,0 +1,11 @@
+.comments-wrap {
+  .title {
+    line-height: 1.2;
+    color: var(--c-black);
+    letter-spacing: 0.01em;
+    font-family: $f-medium;
+
+    @include fluid-size('margin-bottom', 25px, 42px);
+    @include fluid-size('font-size', 22px, 27px);
+  }
+}

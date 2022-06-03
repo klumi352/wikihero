@@ -1,0 +1,15 @@
+.group {
+  &__create {
+    &--topic-title {
+      margin: 0 0 20px 0;
+      @include fluid-size(font-size, 18px, 20px);
+      font-weight: 300;
+    }
+  }
+
+  &__loader-wrap {
+    @include media-to(xs-mid) {
+      flex-direction: column;
+    }
+  }
+}

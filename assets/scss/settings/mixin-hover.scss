@@ -1,0 +1,42 @@
+@mixin hover-state {
+  &:not(:disabled):hover {
+    .no-touchevents & {
+      @content;
+    }
+  }
+}
+
+@mixin hover-state-deep {
+  &:hover {
+    .no-touchevents * & {
+      @content;
+    }
+  }
+}
+
+@mixin active-state {
+  &:not(:disabled):active {
+    .no-touchevents &, 
+    .touchevents & {
+      @content;
+    }
+ 
+    .touchevents & {
+      transition: none;
+    }
+  }
+}
+
+@mixin active-state-with-touch {
+  &:not(:disabled):active {
+    .touchevents & { 
+      @content;
+    }
+  }
+}
+
+@mixin disabled-state {
+  &:disabled {
+    @content;
+  }
+}

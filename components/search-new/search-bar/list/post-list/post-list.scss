@@ -1,0 +1,44 @@
+.list-box {
+  &__sorting-button {
+    font-size: 15px;
+    line-height: 17px;
+    color: #292929;
+    background-color: transparent;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &.selected {
+      color: var(--c-brand);
+    }
+
+    &.checked {
+      color: var(--c-brand);
+    }
+
+    &:hover {
+      color: var(--c-brand);
+    }
+  }
+
+  &__title {
+    line-height: 1.2;
+    color: var(--c-black);
+    letter-spacing: 0.01em;
+    font-family: $f-medium;
+
+    @include fluid-size('margin-bottom', 25px, 42px);
+    @include fluid-size('font-size', 22px, 27px);
+  }
+
+  &__no-data {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  &__sorting-button-wrap {
+    margin-left: -6px;
+    margin-bottom: 5px;
+  }
+}

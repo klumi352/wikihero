@@ -1,0 +1,70 @@
+.container {
+  @include fluid-size('margin-top', 60px, 110px);
+  @include fluid-size('margin-bottom', 60px, 110px);
+  
+  @include default-observer;
+}
+
+.items {
+  max-width: 700px;
+}
+
+.tips {
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  border-top: 1px solid var(--c-grey-light);
+
+
+  &:last-child {    
+    border-bottom: 1px solid var(--c-grey-light);
+  }
+}
+
+.link {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+  transition: all 0.3s;
+
+  @include hover-state {
+    .name {
+      color: var(--c-brand);
+    }
+  }
+
+  @include active-state {
+    opacity: 0.8;
+  }
+
+  @include active-state-with-touch {    
+    background-color: var(--c-grey-superlight);
+  }
+}
+
+.name {
+  font-family: $f-medium;
+  display: inline-block;
+  margin-right: 20px;
+  transition: all 0.2s;
+}
+
+.top {
+  white-space: nowrap;
+  @include media-to(sm) {
+    display: none;
+  }
+}
+
+.tip {
+  white-space: nowrap;
+  margin-left: 30px;
+}
+
+.buttons {
+  max-width: 700px;
+  text-align: center;
+  padding: 20px 0 5px;
+}

@@ -1,0 +1,61 @@
+.feed {
+  &__control {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+
+  &__title {
+    @include fluid-size('font-size', 28px, 36px);
+    // font-size: 36px;
+  }
+
+  &__buttons {
+    ul {
+      li {
+        button {
+          padding: 4px;
+          color: #292929;
+          text-transform: unset;
+          @include fluid-size(font-size, 13px, 14px);
+          line-height: 16px;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+        }
+
+        &.poster {
+          button {
+            color: var(--c-brand);
+          }
+        }
+      }
+    }
+  }
+
+  &__filter-btn {
+    color: var(--c-black);
+    padding: 4px;
+    margin: 4px;
+    border-radius: 5px;
+    border: none;
+    min-width: unset;
+
+    &:hover {
+      background-color: transparent !important;
+      color: var(--c-brand) !important;
+    }
+
+    &.selected {
+      background-color: var(--c-grey-light);
+
+      &:hover {
+        background-color: var(--c-grey-light-3) !important;
+        color: var(--c-black) !important;
+      }
+    }
+  }
+
+  &__selected-count {
+    margin-right: 5px;
+  }
+}

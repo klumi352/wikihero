@@ -1,0 +1,135 @@
+.post {
+  padding: 15px 0;
+  position: relative;
+
+  &__top-wrap {
+    padding-left: 60px;
+    position: relative;
+    min-height: 50px;
+    overflow: hidden;
+  }
+
+  &__title {
+    font-style: normal;
+    font-size: 20px;
+    line-height: 23px;
+    color: #292929;
+    margin-bottom: 5px;
+    padding: 0 40px 0 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &__avatar-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+
+  &__avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    &.anonymous {
+      filter: blur(3px);
+    }
+  }
+
+  &__nav-wrap {
+    display: flex;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    @include media-to(sm) {
+      overflow: auto;
+
+      ul {
+        flex-wrap: nowrap;
+        margin-bottom: 10px;
+        @include scrollbars(0px, grey);
+      }
+    }
+  }
+
+  &__link {
+    white-space: nowrap;
+    font-size: 12px;
+    line-height: 1;
+    margin-right: 5px;
+    display: block;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: transparent;
+    color: black;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &--category {
+      background-color: #e9eef2;
+      padding: 5px 10px;
+    }
+
+    &--group {
+      background-color: #f4eef7;
+      color: var(--c-brand);
+      padding: 5px 10px;
+    }
+  }
+
+  &__preview-txt {
+    line-height: 1.4;
+    color: #292929;
+    word-break: break-all;
+
+    /deep/ {
+      ul {
+        list-style-type: initial;
+        padding-left: 25px;
+      }
+
+      ol {
+        list-style-type: decimal;
+        padding-left: 25px;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      p {
+        word-break: break-word;
+      }
+  
+      a {
+        color: inherit;
+        text-decoration: underline;
+        word-break: break-all;
+      }
+    }
+  }
+
+  &__content-wrap {
+    margin: 25px 0 20px 0;
+    padding-left: 60px;
+
+    @include media-to(sm) {
+      padding-left: 0;
+    }
+  }
+
+  &__btns {
+    max-width: 320px;
+    width: 100%;
+  }
+}

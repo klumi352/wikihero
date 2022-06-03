@@ -1,0 +1,103 @@
+.tags {
+  
+  &__title-wrap {
+    border-top: 1px solid #E2E2E2;
+    border-left: 1px solid #E2E2E2;
+    border-right: 1px solid #E2E2E2;
+    padding: 10px 15px;
+
+    span {
+      color: var(--c-black);
+      line-height: 17px;
+
+      .basic & {
+        @include fluid-size(font-size, 14px, 16px);
+      }
+    }
+  }
+
+  &__list {
+
+    .useInAside & {
+      max-width: 227px;
+    }
+  }
+
+  &__item {
+    border-top: 1px solid #E2E2E2;
+    border-left: 1px solid #E2E2E2;
+    border-right: 1px solid #E2E2E2;
+
+    &:last-child {
+      border-bottom: 1px solid #E2E2E2;
+    }
+  }
+
+  &__main-link {
+    padding: 10px 15px;
+
+    .basic & {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      @include fluid-size(padding-top, 15px, 20px);
+      @include fluid-size(padding-bottom, 15px, 20px);
+      @include fluid-size(padding-left, 10px, 15px);
+      @include fluid-size(padding-right, 10px, 15px); 
+    }
+  }
+
+  &__new-mark {
+    display: block;
+    padding: 6px 12px;
+    background-color: var(--c-brand);
+    border-radius: 60px;
+    font-size: 13px;
+    line-height: 15px;
+    color: #FFFFFF;
+  }
+
+  &__post-info-wrap {
+    .basic & {
+      @include fluid-size(margin-left, 10px, 25px);
+    }
+  }
+
+  &__post-name {
+    color: var(--c-black);
+    line-height: 17px;
+    display: block;
+    margin-bottom: 10px;
+
+    .basic & {
+      margin-bottom: 0;
+      font-weight: normal;
+      font-family: $f-bold;
+      @include fluid-size('font-size', 16px, 20px);
+      color: var(--c-black);
+      width: 100%;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.55;
+    }
+  }
+
+  &__crumb-txt {
+    font-size: 13px;
+    line-height: 15px;
+    white-space: nowrap;
+    color: var(--c-overlay);
+
+    .basic & {
+      @include fluid-size(font-size, 14px, 16px);
+      color: var(--c-grey-dark);
+    }
+  }
+
+  &__msg-icon {
+    margin-right: 10px;
+  }
+}

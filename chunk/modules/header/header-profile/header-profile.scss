@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.img-wrapper {
+  overflow: hidden;
+  border-radius: 50%;
+
+  img {
+    min-width: 36px;
+    max-width: 36px;
+    object-fit: cover;
+  }
+}
+
+.filter-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.arrow {
+  margin-left: 5px;
+}

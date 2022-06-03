@@ -1,0 +1,20 @@
+.h-controls {
+  display: flex;
+  align-items: center;
+
+  .header.isSubtopicPage & {
+    @include media-to(xs) {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translate(0, -50%);
+
+      html.g-fixed & {
+        z-index: -1;
+        opacity: 0;
+        visibility: hidden;
+        transition-delay: 0s;
+      }
+    }
+  }
+}

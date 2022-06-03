@@ -1,0 +1,31 @@
+.user-bar {
+  margin-bottom: 30px;
+
+  &__avatar-wrap {
+    margin-right: 30px;
+  }
+
+  &__avatar {
+    min-width: 100px;
+    max-width: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    height: 100px;
+  }
+
+  &__info-wrap {
+    p {
+      margin: 0;
+    }
+  }
+
+  &__created-data {
+    font-size: 14px;
+  }
+
+  &__job-company {
+    span {
+      font-size: 17px;
+    }
+  }
+}

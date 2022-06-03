@@ -1,0 +1,51 @@
+.index {
+  padding: 100px 0 60px;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.main {
+  width: 100%;  
+  @include default-in-observer;
+
+  @include media-from(sm) {
+    width: 50%;
+    margin-right: 40px;  
+  }
+}
+
+.secondary {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 0;
+  min-width: 38vw;
+  min-height: 38vw;
+  flex-grow: 1;
+  transform: translate(0, -50%);
+  display: none;
+
+  @include in-observer {
+    opacity: 0;
+  }
+
+  @include in-observer-vis(0.2s) {
+    opacity: 1;
+  }
+
+  @include media-from(sm) {
+    display: block;
+  }
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right center;
+}

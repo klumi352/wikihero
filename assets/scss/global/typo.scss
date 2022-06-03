@@ -1,0 +1,149 @@
+a {
+  text-decoration: none;
+}
+
+.g-nice-text {
+  display: inline;
+  background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 65%, #ddb3ff 0);
+}
+
+.g-p {
+  @include fluid-size('font-size', 16px, 21px);
+  line-height: 1.55;
+  color: var(--c-black);
+  letter-spacing: -0.02em;
+  font-family: $f-paragraph;
+  margin: 0;
+}
+
+p {
+  @extend .g-p;
+  margin: 1em 0;
+}
+
+p a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.g-link {
+  font-family: $f-regular;
+  text-decoration: none;
+  color: var(--c-brand);
+
+  &:visited {
+    color: var(--c-brand);
+  }
+
+  &--dark {
+    color: var(--c-black);
+
+    &:visited {
+      color: var(--c-black);
+    }
+  }
+
+  @include hover-state {
+    opacity: 0.8;
+  }
+
+  @include active-state {
+    opacity: 0.6;
+  }
+}
+
+%black-bold {
+  color: var(--c-black);
+  font-family: $f-bold;
+}
+
+.g-h1,
+%g-h1 {
+  @extend %black-bold;
+  @include fluid-size('font-size', 32px, 62px);
+  line-height: 1;
+
+  @include media-to(xs-plus) {
+    letter-spacing: -0.045em;
+  }
+}
+
+h1 {
+  @extend .g-h1;
+  margin: 0.7em 0;
+  &:first-of-type {
+    margin: 0 0 0.7em;
+  }
+}
+
+.new-h1 {
+  @extend %black-bold;
+  @include fluid-size('font-size', 26px, 36px);
+  line-height: 1;
+  letter-spacing: 0.01em;
+
+  &.feed {
+    margin-bottom: 15px;
+  }
+}
+
+.g-h2,
+%g-h2 {
+  @extend %black-bold;
+  @include fluid-size('font-size', 20px, 32px);
+  line-height: 1.2;
+}
+
+h2 {
+  @extend .g-h2;
+  margin: 0.7em 0;
+
+  &:first-of-type {
+    margin: 0 0 0.7em;
+  }
+}
+
+.g-h2-lg {
+  @include fluid-size-md('font-size', 32px, 47px);
+  line-height: 1.5;
+  color: var(--c-black);
+  margin-bottom: 0;
+}
+
+.g-h3,
+%g-h3 {
+  font-weight: normal;
+  font-family: $f-regular;
+  color: var(--c-grey-dark);
+  @include fluid-size('font-size', 16px, 20px);
+
+  &--mobile {
+    font-size: 16px !important;
+  }
+}
+
+h3 {
+  @extend .g-h3;
+  margin: 0.7em 0;
+
+  &:first-of-type {
+    margin: 0 0 0.7em;
+  }
+}
+
+.g-h4,
+%g-h4 {
+  font-family: $f-bold;
+  @include fluid-size('font-size', 12px, 14px);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+h4 {
+  @extend .g-h4;
+  margin: 0.7em 0;
+
+  &:first-of-type {
+    margin: 0 0 0.7em;
+  }
+}

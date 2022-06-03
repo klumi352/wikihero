@@ -1,0 +1,55 @@
+.root {
+  position: relative;
+  height: 100%;
+  display: inline-flex;
+  vertical-align: bottom;
+  align-items: center;
+  justify-content: center;
+
+  &:global(.top) {
+    .ico {
+      top: 12px;
+      bottom: auto;
+      @include media-from(sm) {    
+        top: 15px;
+      }
+    }
+  }
+
+  &:global(.bottom) {
+    .ico {
+      top: auto;
+      bottom: 12px;
+      @include media-from(sm) {    
+        bottom: 15px;
+      }
+    }
+  }
+  
+
+  &:global(.loading) {
+    .ico {
+      visibility: visible;
+      transition: all 0.05s;
+      opacity: 1;
+    }
+  }
+}
+
+.ico {
+  pointer-events: none;
+  object-fit: contain;
+  object-position: center center;
+  position: absolute;
+  z-index: 2;
+  bottom: 14px;
+  left: calc(50% - 20px);
+  overflow: visible!important;
+  transition: all 0.8s;
+  visibility: hidden;
+  opacity: 0;
+
+  @include media-from(sm) {    
+    bottom: 15px;
+  }
+}

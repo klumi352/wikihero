@@ -1,0 +1,51 @@
+.wrapper {
+  @include fluid-size('margin-top', 120px, 155px);
+  @include fluid-size('margin-bottom', 60px, 140px);
+  display: flex;
+  min-height: 100vh;
+
+  body > .modal & {
+    min-height: auto;
+    margin: 0 !important;
+  }
+
+  @include media-to(md) {
+    flex-direction: column;
+  }
+}
+
+.l-col {
+  width: 100%;
+
+  /deep/h1 {
+    max-width: none;
+  }
+
+  @include media-from(md) {
+    margin-right: 60px;
+    max-width: calc(100% - 310px);
+  }
+}
+
+.r-col {
+  > ::v-deep* {
+    position: sticky;
+    top: 100px;    
+
+    body > .modal & {
+      position: relative;
+      top: auto;
+    }
+  }
+
+  @include media-to(md) {
+    order: -1;
+    margin-bottom: 40px;
+  }
+
+  @include media-from(md) {
+    display: block;
+    width: 250px;
+    min-width: 250px;
+  }
+}

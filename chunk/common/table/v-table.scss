@@ -1,0 +1,30 @@
+.total {
+    $total: &;
+    display: inline-block;
+    background-color: var(--c-grey-light);
+    transition: all 0.3s;
+    color: var(--c-black);
+    padding: 2px 7px;
+    text-align: center;    
+    border-radius: 50%;
+    font-size: 16px;
+    font-family: $f-regular;
+    transform: translateY(15px);
+
+    &-wrap {
+        $wrap: &;
+        position: relative;
+        z-index: 2;
+        text-align: center;
+
+        @at-root {
+            .v-table {
+                @include hover-state {
+                    #{$total} {
+                        // background-color: var(--c-brand);
+                    }
+                }
+            }
+        }
+    }
+}

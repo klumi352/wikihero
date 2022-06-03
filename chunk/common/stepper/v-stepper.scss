@@ -1,0 +1,59 @@
+/**
+
+Look !!!!!
+@/assets/scss/global/transitions.scss
+For stepper transition
+With directions
+
+**/
+
+.stepper {
+  position: relative;
+  overflow: hidden;
+  transition: all 200ms;
+  transition-timing-function: var(--t-secondary);
+
+  &.noOverflow {
+    overflow: visible;
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 99;
+  top: -25px;
+  left: -25px;
+  right: -25px;
+  bottom: -25px;
+  background-color: var(--c-preloader);
+  backdrop-filter: grayscale(1);
+  visibility: hidden;
+  opacity: 0;
+  transition-property: opacity, visibility;
+  transition-duration: 0.5s;
+  transition-delay: 0.15s;
+  min-height: 50vh;
+
+  @include media-from(sm) {
+    min-height: auto;
+  }
+
+  &.top {
+    padding-top: 15vh;
+    align-items: flex-start;
+  }
+
+  &.show {
+    opacity: 1;
+    transition-duration: 0.3s;
+    transition-delay: 0s;
+    visibility: visible;
+  }
+}
+
+.ico {
+  
+}

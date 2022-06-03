@@ -1,0 +1,7 @@
+.wrapper {
+  @include fluid-size('margin-top', 150px, 165px);
+  @include fluid-size('margin-bottom', 60px, 140px);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

@@ -1,0 +1,77 @@
+
+@import 'tippy.js/dist/tippy.css';
+
+.tippy-box[data-theme~='main'] {
+  font-family: $f-regular;
+  background-color: var(--c-brand);
+  color: var(--c-white);
+  border-radius: 0;
+
+  .tippy-content {
+    padding: 7px 14px;
+
+    .postPage & {
+      padding: 10px !important;
+    }
+  }
+
+  .tippy-svg-arrow {
+    fill: var(--c-brand);
+  }
+}
+
+.tippy-box[data-theme~='drop'] {
+  font-family: $f-regular;
+  color: var(--c-black);
+  background-color: rgba(white, 1);
+  // background-color: rgba(white, 0.85);
+  // backdrop-filter: blur(4px);
+  border: 1px solid var(--c-grey-light);
+  border-radius: 0;
+
+  .tippy-content {
+    padding: 14px;
+    min-width: 180px;
+    box-shadow: -10px 10px 20px rgba(black, 0.05);
+  }
+
+  .tippy-svg-arrow {
+    fill: var(--c-brand);
+  }
+
+  &[data-placement^=bottom] {
+    >.tippy-arrow:before {
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      top: -13px;
+      left: calc(50% - 10px);
+      transform: rotate(-45deg);
+      transform-origin: center center;
+      background-color: var(--c-white);
+      border: none;
+      border-top: 1px solid var(--c-grey-light);
+      border-right: 1px solid var(--c-grey-light);
+
+      border-bottom-color: var(--c-grey-light);
+      border-bottom-color: var(--c-grey-light);
+
+    }
+  }
+
+  &[data-placement^=top] {
+    >.tippy-arrow:before {
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      bottom: -13px;
+      left: calc(50% - 10px);
+      transform: rotate(-45deg);
+      transform-origin: center center;
+      background-color: var(--c-white);
+      border: none;
+      border-bottom: 1px solid var(--c-grey-light);
+      border-left: 1px solid var(--c-grey-light);
+    }
+  }
+}

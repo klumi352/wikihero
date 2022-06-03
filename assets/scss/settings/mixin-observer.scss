@@ -1,0 +1,81 @@
+$ot_: 0.8s;
+$tt_: 0.4s;
+$d: 0s;
+
+@mixin default-observer {
+  &[data-ob] {
+    transition: none;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  &[data-ob='vis'] {
+    transition: opacity $ot_, transform $tt_ var(--t-light);
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@mixin default-in-observer {
+  [data-ob] & {
+    transition: none;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  [data-ob='vis'] & {
+    transition: opacity $ot_, transform $tt_ var(--t-light);
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@mixin _observer() {
+  &[data-ob] {
+    @content;
+  }
+}
+
+@mixin _observer-vis($delay: $d) {
+  &[data-ob='vis'] {
+    @content;
+  }
+}
+
+@mixin _in-observer() {
+  [data-ob] & {
+    @content;
+  }
+}
+
+@mixin _in-observer-vis() {
+  [data-ob='vis'] & {
+    @content;
+  }
+}
+
+@mixin observer() {
+  &[data-ob] {
+    transition: none;
+    @content;
+  }
+}
+
+@mixin observer-vis($delay: $d) {
+  &[data-ob='vis'] {
+    transition: opacity $ot_ $delay, transform $tt_ $delay var(--t-light);
+    @content;
+  }
+}
+
+@mixin in-observer() {
+  [data-ob] & {
+    transition: none;
+    @content;
+  }
+}
+
+@mixin in-observer-vis($delay: $d) {
+  [data-ob='vis'] & {
+    transition: opacity $ot_ $delay, transform $tt_ $delay var(--t-light);
+    @content;
+  }
+}

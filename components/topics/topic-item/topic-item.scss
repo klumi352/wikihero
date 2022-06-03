@@ -1,0 +1,150 @@
+.item {
+  @include active-state-with-touch {    
+    background-color: var(--c-grey-superlight);
+  }
+
+  &:first-child {
+    .title {
+      border-top: none;
+    }
+  }   
+
+  &:last-child {
+    .title {
+      border-bottom: 1px solid var(--c-grey-light);
+    }
+  }  
+  
+  &:not([data-follow='false']).followed, 
+  &[data-follow='true'] {
+    .ico {
+      &--plus {
+        display: none;
+      }
+    
+      &--check {
+        display: block;
+      }
+    }
+
+    .foll {    
+      &--plus {
+          display: none;
+      }
+    
+      &--check {
+          display: block;
+      }
+    }
+  }
+}
+
+.info {
+  @extend %button-null;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  transition: all 0.4s;
+
+  @include hover-state {
+    opacity: 0.9;
+  }
+
+  @include active-state {
+    opacity: 0.7;
+  }
+
+  &:disabled {
+    opacity: 0.3!important;
+    transition: none;
+  }
+}
+
+.ico {
+  &--plus {
+    display: block;
+  }
+
+  &--check {
+    display: none;
+  }
+}
+
+.foll {
+  margin-right: 10px;
+  line-height: 1;
+
+  &-count {
+    position: absolute;
+    top: calc(50% + 15px);
+    right: 0;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    @include fluid-size(font-size, 10px, 12px);
+    color: var(--c-grey);
+    line-height: 1;
+    font-family: $f-bold;
+    text-transform: uppercase;
+  }
+
+  &--plus {
+    display: block;
+    color: var(--c-black);
+  }
+
+  &--check {
+    color: var(--c-brand);
+    display: none;
+  }
+}
+
+.btn {
+  @extend %button-null;
+  cursor: default;
+  position: relative;
+  margin-top: 40px;
+  text-align: left;
+  padding: 15px 0;
+  width: 100%;  
+  
+  .topic-first & {
+    margin-top: 0!important;
+  }
+}
+
+.title {
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  cursor: pointer;
+  position: relative;
+  border-top: 1px solid var(--c-grey-light);
+
+  &-inside {
+    flex-grow: 1;
+    transition: all 0.4s;
+    font-family: $f-medium;
+    padding: 30px 0;
+
+    @include media-from(sm) {
+      padding: 35px 0;
+    }
+
+    @include hover-state {
+      color: var(--c-brand);
+    }
+  
+    @include active-state {
+      opacity: 0.8;
+    }
+  }
+}
+
+.btn-sign {
+  display: flex;
+  justify-content: center;
+  margin: 0 !important;
+}

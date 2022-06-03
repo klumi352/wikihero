@@ -1,0 +1,496 @@
+.g-btn {
+  $g: &;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  //
+  min-width: 90px;
+  min-height: 36px;
+  padding: 8px;
+  background: none;
+  border: 2px solid var(--c-brand);
+  cursor: pointer;
+  text-decoration: none;
+  @include fluid-size(font-size, 12px, 14px);
+  line-height: 1;
+  color: var(--c-brand);
+  font-family: $f-bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.2s;
+  white-space: nowrap;
+  user-select: none;
+
+  &.w100p {
+    width: 100%;
+  }
+
+  svg,
+  svg path {
+    transition: all 0.2s;
+    margin-right: 5px;
+    vertical-align: baseline;
+  }
+
+  @include media-from(sm) {
+    padding: 11px;
+  }
+
+  @mixin hover-and-active {
+    color: var(--c-white);
+    &:after {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  @include hover-state {
+    background-color: var(--c-brand);
+    @include hover-and-active;
+
+    svg,
+    svg path {
+      fill: var(--c-white);
+    }
+  }
+
+  @include active-state {
+    border-color: var(--c-brand-dark);
+    background-color: var(--c-brand-dark);
+    @include hover-and-active;
+
+    svg,
+    svg path {
+      fill: var(--c-white);
+    }
+  }
+
+  @include disabled-state {
+    transition: all 0.1s;
+    opacity: 0.2;
+
+    .fetch-loading & {
+      opacity: 0.15;
+    }
+  }
+
+  &--fill {
+    color: var(--c-white);
+    background-color: var(--c-brand);
+
+    @include hover-state {
+      border-color: var(--c-brand-light);
+      background-color: var(--c-brand-light);
+    }
+
+    @include active-state {
+      border-color: var(--c-brand-dark);
+      background-color: var(--c-brand-dark);
+    }
+  }
+
+  &--success {
+    color: var(--c-success);
+    background-color: $t;
+    border-color: var(--c-success);
+
+    @include hover-state {
+      border-color: $t;
+      color: var(--c-success);
+      background-color: var(--c-grey-light);
+    }
+
+    @include active-state {
+      border-color: $t;
+      color: var(--c-success);
+      background-color: var(--c-grey-light);
+      opacity: 0.8;
+    }
+  }
+
+  &--error {
+    color: var(--c-error);
+    background-color: $t;
+    border-color: var(--c-error);
+
+    @include hover-state {
+      border-color: $t;
+      color: var(--c-white);
+      background-color: var(--c-error);
+    }
+
+    @include active-state {
+      border-color: $t;
+      color: var(--c-white);
+      background-color: var(--c-error);
+      opacity: 0.8;
+    }
+  }
+
+  &--outline {
+    color: var(--c-black);
+    background-color: $t;
+    border-color: var(--c-grey-light);
+
+    @include hover-state {
+      border-color: $t;
+      color: var(--c-black);
+      background-color: var(--c-grey-light);
+    }
+
+    @include active-state {
+      border-color: $t;
+      color: var(--c-black);
+      background-color: var(--c-grey-light);
+      opacity: 0.8;
+    }
+  }
+
+  &--white {
+    color: var(--c-white);
+    min-width: auto;
+    border-color: $t;
+
+    svg,
+    svg path {
+      fill: var(--c-white);
+    }
+
+    @include hover-state {
+      color: var(--c-white);
+      background-color: $t;
+      border-color: $t;
+      opacity: 0.8;
+    }
+
+    @include active-state {
+      color: var(--c-white);
+      background-color: $t;
+      border-color: $t;
+      opacity: 0.5;
+    }
+  }
+
+  &--link {
+    min-width: auto;
+    border-color: $t;
+    color: var(--c-brand);
+
+    svg,
+    svg path {
+      fill: var(--c-brand);
+    }
+
+    @include hover-state {
+      color: var(--c-brand-light);
+      background-color: $t;
+      border-color: $t;
+
+      svg,
+      svg path {
+        fill: var(--c-brand-light);
+      }
+    }
+
+    @include active-state {
+      color: var(--c-brand-dark);
+      background-color: $t;
+      border-color: $t;
+
+      svg,
+      svg path {
+        fill: var(--c-brand-dark);
+      }
+    }
+  }
+
+  &--dark {
+    min-width: auto;
+    border-color: $t;
+    color: var(--c-black);
+
+    @include hover-state {
+      color: var(--c-brand);
+      background-color: $t;
+      border-color: $t;
+
+      svg,
+      svg path {
+        color: var(--c-brand);
+      }
+    }
+
+    @include active-state {
+      color: var(--c-brand);
+      opacity: 0.5;
+      background-color: $t;
+      border-color: $t;
+    }
+  }
+
+  &--grey {
+    color: var(--c-grey-dark);
+    min-width: auto;
+    border-color: $t;
+
+    @include hover-state {
+      color: var(--c-brand);
+      background-color: $t;
+      border-color: $t;
+
+      svg,
+      svg path {
+        fill: var(--c-brand);
+      }
+    }
+
+    @include active-state {
+      color: var(--c-brand-dark);
+      background-color: $t;
+      border-color: $t;
+
+      svg,
+      svg path {
+        fill: var(--c-brand-dark);
+      }
+    }
+  }
+
+  &--icon {
+    min-width: 345px;
+    position: relative;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    @include media-to(sm) {
+      min-width: 310px;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: calc(50% - 10px);
+      width: 20px;
+      height: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    @at-root #{$g}--goo {
+      &:after {
+        background-image: url('~assets/svg/social/google.svg');
+      }
+    }
+
+    @at-root #{$g}--fb {
+      &:after {
+        background-image: url('~assets/svg/social/facebook.svg');
+      }
+    }
+  }
+}
+
+// drop button
+
+.g-btn-drop {
+  @extend %button-null;
+  @include fluid-size(font-size, 16px, 20px);
+  font-family: $f-regular;
+  margin: 10px 0;
+  text-align: center;
+  color: var(--c-black);
+  text-transform: capitalize;
+
+  &.active,
+  &.nuxt-link-exact-active {
+    color: var(--c-brand);
+  }
+
+  @include hover-state {
+    opacity: 0.8;
+  }
+
+  @include active-state {
+    opacity: 0.7;
+  }
+}
+
+.g-btn-drop-middle {
+  @extend %button-null;
+  @include fluid-size(font-size, 15px, 15px);
+  font-family: $f-regular;
+  margin: 0;
+  text-align: center;
+  color: var(--c-black);
+  text-transform: capitalize;
+
+  &.active,
+  &.nuxt-link-exact-active {
+    color: var(--c-brand);
+  }
+
+  @include hover-state {
+    opacity: 0.8;
+  }
+
+  @include active-state {
+    opacity: 0.7;
+  }
+}
+
+.g-extend-btn {
+  $g: &;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 5px;
+  background: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 12px;
+  transition: all 0.2s;
+  border: none;
+  font-family: $f-regular;
+  box-shadow: none;
+}
+
+// transparent button
+.g-t-btn {
+  $g: &;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 8px;
+  background: none;
+  border: 2px solid $t;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0;
+  transition: all 0.2s;
+
+  &.g-t-btn--svg-grey {
+    svg,
+    path {
+      fill: var(--c-grey);
+    }
+  }
+
+  &.g-t-btn--svg-success {
+    svg,
+    path {
+      fill: var(--c-error);
+    }
+  }
+
+  &.g-t-btn--svg-error {
+    svg,
+    path {
+      fill: var(--c-error);
+    }
+  }
+
+  &.g-t-btn--svg-white {
+    svg {
+      fill: var(--c-white);
+    }
+  }
+
+  // HOVERS
+
+  &.g-t-btn--svg-black-hover {
+    @include hover-state {
+      svg,
+      path {
+        fill: var(--c-black);
+      }
+    }
+  }
+
+  &.g-t-btn--svg-success-hover {
+    @include hover-state {
+      svg,
+      path {
+        fill: var(--c-success);
+      }
+    }
+  }
+
+  &.g-t-btn--svg-error-hover {
+    @include hover-state {
+      svg,
+      path {
+        fill: var(--c-error);
+      }
+    }
+  }
+
+  &.g-btn--publish {
+    filter: grayscale(1);
+
+    &.active {
+      filter: none;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  @include hover-state {
+    opacity: 0.8;
+  }
+
+  @include active-state {
+    opacity: 0.6;
+  }
+}
+
+.g-btn-mini {
+  $g: &;
+  display: inline-block;
+  padding: 6px;
+  background: var(--c-grey-superlight);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: none;
+  @include fluid-size(font-size, 10px, 12px);
+  white-space: nowrap;
+  font-family: $f-medium;
+  text-transform: uppercase;
+  margin-right: 5px;
+  margin-bottom: 5px;
+
+  &.active {
+    background-color: var(--c-brand);
+    color: var(--c-white);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  @include hover-state {
+    opacity: 0.9;
+  }
+
+  @include active-state {
+    opacity: 0.75;
+  }
+}
+
+.g-with-dot {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 4px;
+    right: 4px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: var(--c-success);
+  }
+}

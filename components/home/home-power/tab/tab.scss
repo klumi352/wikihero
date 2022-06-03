@@ -1,0 +1,72 @@
+.home-tab {
+  $me: &;
+
+  transition: all 0.2s;
+
+  @include default-observer;
+
+  &.active {
+    &:not(:first-child) {
+      @include fluid-size('margin-top', 15px, 20px);
+    }
+
+    #{$me}-wrap {
+      &::before {
+        height: calc(100% - 62px);
+      }
+    }
+
+    #{$me}-title {
+      font-family: $f-medium;
+    }
+  }
+
+  &-wrap {
+    @include fluid-size('padding-left', 15px, 19px);
+    @include fluid-size('padding-right', 15px, 19px);
+    @include fluid-size('padding-top', 15px, 19px);
+
+    position: relative;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: -1;
+      height: 0;
+      background: var(--c-grey-superlight-1);
+      border-radius: 10px;
+      transition: all 0.2s;
+      content: '';
+    }
+  }
+
+  &-title {
+    @include fluid-size('font-size', 20px, 27px);
+    @include fluid-size('line-height', 22px, 31px);
+
+    color: #000;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+  }
+
+  &-desc {
+    @include fluid-size('line-height', 23px, 25px);
+
+    margin-top: 5px;
+    letter-spacing: -0.01em;
+  }
+
+  &-expand {
+    height: 0;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+
+  &-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+}

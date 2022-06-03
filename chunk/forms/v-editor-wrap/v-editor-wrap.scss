@@ -1,0 +1,16 @@
+.v-editor {
+  min-height: 20vh;
+
+  &:not(:first-of-type) {
+    // margin-top: 60px;
+  }
+}
+
+/deep/ {
+  .ce-block__content {
+    max-width: none;
+  }
+  .codex-editor__redactor {
+    padding-bottom: 120px!important;
+  }
+}

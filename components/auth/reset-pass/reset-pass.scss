@@ -1,0 +1,13 @@
+.wrapper {
+  margin: 40px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+button {
+
+  &:not(:last-child) {
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+}

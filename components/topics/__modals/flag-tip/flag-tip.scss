@@ -1,0 +1,40 @@
+.wrapper {
+  margin: 40px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+button {
+  margin-bottom: 15px;
+
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+
+.space {
+  margin-top: 30px;
+  
+  @include media-from(sm) {    
+    @include fluid-size(margin-top, 50px, 250px);
+  }
+}
+
+.pic {
+  display: block;
+  z-index: 1;
+  width: 100%;
+  max-width: 450px;
+  max-height: 450px;
+  object-position: bottom right;
+  margin: 50px auto 0;
+  
+
+  @include media-from(sm) {   
+    position: absolute;
+    top: auto;
+    left: auto;
+    right: -50px;
+    bottom: -50px;
+  }
+}

@@ -1,0 +1,115 @@
+.group-tabs {
+  flex-wrap: wrap;
+
+  @include default-observer;
+
+  &__tabs {
+    display: flex;
+    align-items: center;
+
+    ul {
+      li {
+        button {
+          padding: 3px;
+          color: #292929;
+          @include fluid-size(font-size, 13px, 15px);
+          line-height: 17px;
+          letter-spacing: 0px;
+          text-transform: unset;
+
+          &.active {
+            color: var(--c-brand);
+          }
+        }
+      }
+    }
+  }
+
+  &__btns {
+    ul {
+      li {
+        button {
+          padding: 4px;
+          color: #292929;
+          line-height: 16px;
+          letter-spacing: 0.1em;
+          text-transform: unset;
+          text-transform: uppercase;
+
+          @include fluid-size(font-size, 13px, 14px);
+        }
+
+        &.poster {
+          button {
+            color: var(--c-brand);
+          }
+        }
+      }
+    }
+  }
+
+  &__filter-btn {
+    min-width: unset;
+    margin: 4px;
+    padding: 4px;
+    color: var(--c-black);
+    border: none;
+    border-radius: 5px;
+
+    &:hover {
+      color: var(--c-brand) !important;
+      background-color: transparent !important;
+    }
+
+    &.selected {
+      background-color: var(--c-grey-light);
+
+      &:hover {
+        color: var(--c-black) !important;
+        background-color: var(--c-grey-light-3) !important;
+      }
+    }
+  }
+
+  &__selected-count {
+    margin-right: 5px;
+  }
+
+  .mobile-filter {
+    &-select {
+      display: none !important;
+      margin: 0;
+
+      @include media-to(xs) {
+        display: block !important;
+      }
+
+      ::v-deep {
+        .select__btn {
+          color: var(--c-brand);
+          background-color: transparent;
+          border: 0;
+          padding-left: 0;
+        }
+
+        .arrow:not(.close) {
+          display: block !important;
+
+          path {
+            fill: #000 !important;
+          }
+        }
+
+        .close.arrow {
+          display: none !important;
+        }
+      }
+    }
+
+    &-tags {
+      @include media-to(xs) {
+        display: none;
+      }
+    }
+  }
+}

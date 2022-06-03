@@ -1,0 +1,63 @@
+.wrapper {
+  margin: 40px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+button {
+  margin-bottom: 15px;
+
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+
+.pic {
+  display: block;
+  z-index: 1;
+  width: 100%;
+  max-width: 450px;
+  max-height: 450px;
+  object-position: bottom right;
+  margin: 50px auto 0;
+  
+
+  @include media-from(md) {
+    position: absolute;
+    top: auto;
+    left: auto;
+    right: -50px;
+    bottom: -50px;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.btn {
+  &__mrg {
+    &.g-btn {
+      margin-right: 140px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  @include media-to(xs) {
+    &__wrap {
+      justify-content: space-between;
+    }
+
+    &__mrg {
+      &.g-btn {
+        margin: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.v-preloader {
+  position: fixed;
+  z-index: 1000000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0.6s;
+  background-color: var(--c-preloader);
+  opacity: 0;
+  min-height: 100vh;
+  visibility: hidden;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s;
+
+    & ~ ::v-deep main {
+      transition: opacity 0.2s;
+      will-change: auto;
+      opacity: 0;
+    }
+  }
+}
+
+.loading {
+  width: 100%;
+  height: 100%;
+  overflow: visible!important;
+  fill: var(--c-brand);
+}
+
+.wrapper {
+  height: 1.8vw;
+  width:  1.8vw;
+  min-width: 75px;
+  min-height: 75px;
+}

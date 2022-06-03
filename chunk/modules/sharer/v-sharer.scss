@@ -1,0 +1,41 @@
+.only-tablet {
+  margin: 50px 0 70px;
+
+  @include media-from(md) {
+    display: none;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  @include media-to(md) {
+    justify-content: flex-start;
+  }
+
+  @include media-to(xs-plus) {
+    justify-content: space-between;
+  }
+
+  @include in-observer {
+    opacity: 0;
+  }
+
+  @include in-observer-vis {
+    opacity: 1;
+  }
+}
+
+.col {
+  
+  &:not(:first-child):not(:last-child) {
+    margin: 0 10px;
+  }
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  margin: 0 !important;
+}

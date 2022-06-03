@@ -1,0 +1,11 @@
+.breadcrumbs {
+  margin: 0 0 40px;
+  line-height: 1.4!important;
+  font-size: 15px;
+}
+
+.current {
+  font-family: $f-regular;
+  color: var(--c-grey-dark);
+  line-height: 1;
+}

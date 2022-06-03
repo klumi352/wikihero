@@ -1,0 +1,40 @@
+:export {
+    --c-brand: #7417EA;
+    --c-brand-transparent: rgba(#7417EA, 0);
+    --c-brand-light: rgb(147, 68, 251);
+    --c-brand-middlelight: rgb(212, 180, 255);
+    --c-brand-superlight: rgb(246, 239, 255);
+    --c-brand-dark: rgb(97, 22, 195);
+    --c-brand-superdark: rgb(43, 6, 92);
+
+    --c-grey:  rgb(163, 163, 163);
+    --c-grey-dark: #757575;
+    --c-grey-superdark: #464646;
+    --c-grey-light: #e3e3e3;
+    --c-grey-superlight: #f5f5f5;
+
+    --c-overlay: #{rgba(black, 0.6)};
+    --c-overlay-light: #{rgba(black, 0.3)};
+
+    --c-preloader: #{rgba(white, 0.8)};
+
+    --c-white: #ffffff;
+    --c-black: #292929;
+
+    --c-error: #E26839;
+    --c-error-transparent: #{rgba(rgb(226, 57, 57), 0.15)};
+    --c-success: #32AD13;
+    --c-success-transparent: #{rgba(rgb(54, 189, 21), 0.15)};
+
+    --t-main: cubic-bezier(.17,0.5,.175,1);
+    --t-light: ease-out ;
+    --t-secondary: ease-in-out;
+    --t-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --site-min-width: #{$site-min-width};
+    --site-max-width: #{$site-max-width};
+
+    --container-size: #{$container-size};
+    --container-padding: #{$container-padding};
+    --container-padding-small: #{$container-padding-small};
+  }

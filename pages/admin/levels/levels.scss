@@ -1,0 +1,22 @@
+.inps {
+  display: flex;
+  align-items: center;
+}
+
+.level {
+  padding-right: 30px;
+}
+
+.inp {    
+  width: 100%;  
+  padding-right: 10px;
+
+  &:last-child {
+    margin-right: 20px;
+  }
+}
+
+.img {
+  border-radius: 50%;
+  overflow: hidden;
+}

@@ -1,0 +1,12 @@
+// warning!
+// directory ./components no need to compile
+// vendor
+
+@import "./variables.scss";
+@import "./settings";
+@import "./vendor/index";
+@import "./vendor/vue-select";
+
+// global
+
+@import "./global/index";

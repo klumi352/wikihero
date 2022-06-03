@@ -1,0 +1,270 @@
+$PROCESING_CLOSE: 420; // 400 + 20 (for safe animation)
+$PROCESING_DELAY: 100;
+$SCALE_MAIN: 0.9;
+
+.modal {
+  position: fixed;
+  height: 100vh;
+  height: var(--vh);
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /deep/ * {
+    -webkit-overflow-scrolling: auto;
+  }
+
+  @include media-to(sm) {
+    // top: 100px;
+    // .g-fixed & {
+    //   top: 79px;
+    // }
+    // .g-aside-nav & {
+    //   top: 0;
+    // }
+  }
+}
+
+.overlay {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 12px;
+  background-color: var(--c-overlay);
+  animation: modal-overlay #{$PROCESING_CLOSE}ms both alternate;
+  animation-timing-function: var(--t-bounce);
+  cursor: pointer;
+  // backdrop-filter: grayscale(1);
+
+  .touchevents & {
+    right: 0px;
+  }
+
+  @include media-to(sm) {
+    backdrop-filter: none;
+    display: none;
+  }
+
+  .g-modal-closing & {
+    animation: modal-overlay-reverse #{$PROCESING_CLOSE}ms;
+  }
+
+  @keyframes modal-overlay {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes modal-overlay-reverse {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}
+
+.inside {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+}
+
+.main {
+  width: calc(100% - 10px);
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  margin: 0 auto;
+  background-color: var(--c-white);
+  display: inline-block;
+  text-align: left;
+  animation: modal-main #{$PROCESING_CLOSE - $PROCESING_DELAY}ms #{$PROCESING_DELAY}ms
+    both alternate;
+  animation-timing-function: var(--t-bounce);
+  max-width: 790px;
+  padding: 50px;
+
+  .no-touchevents & {
+    pointer-events: auto;
+  }
+
+  .modal.mini & {
+    max-width: 500px;
+
+    @include media-from(sm) {
+      padding: 25px 30px;
+    }
+  }
+
+  .modal.wide & {
+    max-width: 1000px;
+  }
+
+  .modal.extraWide & {
+    max-width: 1350px;
+
+    @include media-to(sm) {
+      max-width: 100vw;
+    }
+  }
+
+  .modal.noOverflow & {
+    overflow: visible;
+  }
+
+  .g-modal-closing & {
+    animation: modal-main-reverse #{$PROCESING_CLOSE}ms;
+  }
+
+  .like-filter &, .like-feed-filter & {
+    width: initial;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    height: var(--app-height);
+
+    @include media-to(sm) {
+      width: calc(100% - 10px);
+      position: relative;
+      padding: 45px 15px;
+    }
+  }
+
+  @include media-to(sm) {
+    padding: 45px 15px 60px;
+    margin-bottom: 150px;
+  }
+
+  /deep/ {
+    h1,
+    h2,
+    h3,
+    .g-h1,
+    .g-h2,
+    .g-h3 {
+      // max-width: calc(100% - 40px);
+    }
+  }
+}
+
+/deep/.g-container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.content {
+  overflow: auto;
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  padding: 100px 0;
+  text-align: center;
+
+  .no-touchevents & {
+    // pointer-events: none;
+  }
+
+  .like-filter &, .like-feed-filter & {
+    overflow: initial;
+  }
+
+  @include media-to(sm) {
+    background-color: var(--c-white);
+    padding: 0;
+
+    animation: modal-main #{$PROCESING_CLOSE - $PROCESING_DELAY}ms #{$PROCESING_DELAY}ms
+      both alternate;
+
+    .g-modal-closing & {
+      animation: modal-main-reverse #{$PROCESING_CLOSE}ms;
+    }
+  }
+
+  @include media-from(sm) {
+    &:before,
+    &:after {
+      display: inline-block;
+      min-height: 100%;
+      height: 100%;
+      vertical-align: middle;
+      content: '';
+    }
+  }
+}
+
+.close {
+  position: absolute;
+  z-index: 3;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  color: var(--c-black);
+  transform-origin: center center;
+
+  @include media-to(sm) {
+    display: none;
+  }
+}
+
+.fixed-close {
+  position: fixed;
+  z-index: 3;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  color: var(--c-black);
+  transform-origin: center center;
+  border-radius: 50%;
+  background-color: var(--c-white);
+  animation: modal-main #{$PROCESING_CLOSE - $PROCESING_DELAY}ms #{$PROCESING_DELAY}ms
+    both alternate;
+
+  // .g-fixed & {
+  //   top: 90px;
+  // }
+  // .g-aside-nav & {
+  //   top: 15px;
+  // }
+
+  .g-modal-closing & {
+    background-color: $t;
+    animation: modal-main-reverse #{$PROCESING_CLOSE}ms;
+  }
+
+  @include media-from(sm) {
+    display: none;
+  }
+}
+
+@keyframes modal-main {
+  from {
+    opacity: 0;
+    transform: scale($SCALE_MAIN);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes modal-main-reverse {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale($SCALE_MAIN);
+  }
+}

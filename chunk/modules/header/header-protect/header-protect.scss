@@ -1,0 +1,26 @@
+.wrapper {
+  padding: 0 10px;
+  display: flex;
+  margin-right: -20px;
+}
+
+.link {
+  display: inline-block;
+  vertical-align: middle;
+  transition: all 0.3s;
+  overflow: hidden;
+  max-width: 150px;
+
+  &.hidden {
+    pointer-events: none;
+    max-width: 0;
+    opacity: 0;
+  }
+}
+
+.btn {
+  @include media-to(xs-min) {
+    padding: 4px;
+    font-size: 11px;
+  }
+}

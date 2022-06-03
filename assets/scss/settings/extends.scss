@@ -1,0 +1,36 @@
+%button-null {
+  cursor: pointer;
+  border: none;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+%g-animation--toup {
+  overflow: hidden;
+  display: inline-block;
+  padding: 0.05em 0;
+  position: relative;
+  bottom: -0.05em;
+  vertical-align: bottom;
+
+  > span {
+    display: inline-block;
+
+    @include _in-observer {
+      transition: none;
+      opacity: 0;
+      transform: translateY(120%);
+    }
+  
+    @include _in-observer-vis {
+      transform: none;    
+      transition-property: all;
+      transition-duration: 0.6s;
+      transition-delay: 0.3s;
+      opacity: 1;
+      transition-timing-function: var(--t-main);
+    }
+  }
+}

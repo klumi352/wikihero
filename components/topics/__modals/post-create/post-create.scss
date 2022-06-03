@@ -1,0 +1,68 @@
+.post-create-popup {
+  position: relative;
+
+  &__button-wrap {
+    display: flex;
+
+    @include media-to(xs-mid) {
+      justify-content: space-between;
+    }
+  }
+
+  &__close {
+    margin-right: 140px;
+
+    @include media-to(sm-lg) {
+      margin-right: 90px;
+    }
+
+    @include media-to(xs-mid) {
+      margin-right: 0;
+    }
+  }
+
+  &__decription {
+    margin-bottom: 100px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+
+  &__pic {
+    display: block;
+    z-index: 1;
+    width: 100%;
+    max-width: 450px;
+    max-height: 450px;
+    -o-object-position: bottom right;
+    object-position: bottom right;
+    margin: 50px auto 0;
+    position: absolute;
+    top: auto;
+    left: auto;
+    right: -50px;
+    bottom: -50px;
+
+    @include media-to(md) {
+      max-width: 420px;
+      max-height: 350px;
+      position: static;
+    }
+
+    @include media-to(xs) {
+      max-width: 320px;
+      max-height: 320px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+}

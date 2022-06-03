@@ -1,0 +1,61 @@
+.button-edit {
+  //
+}
+
+.button-create {
+  svg {
+    transform: rotate(45deg);
+  }
+
+  /deep/path:first-child {
+    fill: var(--c-brand);
+  }
+}
+
+.button-create-tip {
+  svg {
+    transform: rotate(45deg);
+  }
+
+  /deep/path:first-child {
+    fill: var(--c-success);
+  }
+}
+
+.button-publish {
+  filter: grayscale(1);
+
+  &.publish {
+    filter: none;
+  }
+}
+
+.admin-controll {
+  background-color: var(--c-white);
+  // transition: all 0.3s;
+  display: inline-flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 100001;
+  padding: 10px;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  box-shadow: -10px 10px 20px rgba(black, 0.1);
+
+  html.overflow:not(.touchevents) & {
+    right: 22px;
+  }
+
+  .g-no-admin-controll & {
+    display: none !important;
+  }
+
+  .g-fixed & {
+    transform: translateY(-50%);
+  }
+
+  @include media-to(lg-plus) {
+    display: none;
+  }
+}

@@ -1,0 +1,45 @@
+.g-animation--toup {
+  overflow: hidden;
+  display: inline-block;
+  padding: 0.05em 0;
+  position: relative;
+  bottom: -0.05em;
+  vertical-align: bottom;
+
+  > span {
+    display: inline-block;
+
+    @include _in-observer {
+      transition: none;
+      opacity: 0;
+      transform: translateY(120%);
+    }
+  
+    @include _in-observer-vis {
+      transform: none;    
+      transition-property: all;
+      transition-duration: 0.6s;
+      transition-delay: 0.3s;
+      opacity: 1;
+      transition-timing-function: var(--t-main);
+    }
+  }
+}
+
+@keyframes a-small-bounce {
+  0% { 
+    transform: translate3d(0, 10px, 0);
+    opacity: 0; 
+  }
+  58% { 
+    opacity: 0.5;
+    transform: translate3d(0, -8px, 0) ;
+  }
+  73% { 
+    opacity: 1; 
+    transform: translate3d(0, 5px, 0) 
+  }
+  88% { 
+    transform: translate3d(0, -3px, 0) 
+  }
+}

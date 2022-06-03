@@ -1,0 +1,29 @@
+.hashtag-item {
+  padding: 15px;
+  border: 1px solid #e2e2e2;
+  border-top-width: 0;
+
+  @include default-observer;
+
+  &:first-child {
+    border-top-width: 1px;
+  }
+
+  &__title {
+    color: var(--c-black);
+    font-family: $f-medium;
+    line-height: 1.2;
+
+    @include fluid-size('margin-bottom', 15px, 20px);
+    @include fluid-size('font-size', 16px, 20px);
+  }
+
+  &__desc {
+    color: var(--c-black);
+    font-family: $f-regular;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+
+    @include fluid-size('font-size', 16px, 20px);
+  }
+}

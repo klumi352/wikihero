@@ -1,0 +1,115 @@
+.subtopic-item {
+  position: relative;
+  border-top: 1px solid var(--c-grey-light); 
+
+  &:first-child {
+    border-top: none;
+  }
+
+  &:last-child {
+    border-bottom: 1px solid var(--c-grey-light);
+  }
+}
+
+.title {
+  display: block;
+  @extend %button-null;
+
+  width: 100%;
+  text-align: left;
+  font-family: $f-medium;
+  padding: 25px 40px;
+  padding-right: 70px;
+  position: relative;
+
+  @include hover-state {
+    color: var(--c-brand);
+
+    ~ .arrow {
+      /deep/path {
+        fill: var(--c-brand);
+      }
+      transform: translate(-5px, -50%) rotate(-90deg);
+    }
+  }
+
+  @include active-state {
+    opacity: 0.8;
+  }
+}
+
+.list {
+  margin-bottom: 30px;
+
+  @include media-from(sm) {
+    padding-left: 60px;
+    margin-bottom: 60px;
+  }
+}
+
+.btn-arrow {
+  position: absolute;
+  position: absolute;
+  left: -10px;
+  transition: none;
+  top: 0;
+  bottom: 0;
+
+  .visible & {
+    @include fluid-size(top, 18px, 26px);
+    bottom: auto;
+  }
+}
+
+.arrow, .button {
+  @include fluid-size(top, 38px, 46px);
+}
+
+.arrow {
+  transition: all 0.2s;
+  transform: rotate(-90deg);
+
+  .visible & {
+    transform: none!important;
+  }
+}
+
+.button {
+  position: absolute;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.t-btn {
+  display: inline-block;  
+  vertical-align: middle;
+  padding: 8px;
+  background: none;
+  border: 2px solid $t;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0;
+
+  /deep/path {
+    transition: all 0.2s;
+  }
+
+  @include hover-state {
+    /deep/path {
+      fill: var(--c-brand);
+    }
+  }
+  
+  @include active-state {
+    opacity: 0.6;
+  }
+}
+
+// .counter {
+//   position: absolute;
+//   color: var(--c-grey-dark);
+//   font-size: 12px;
+//   @include fluid-size(right, 20px, 25px);
+//   @include fluid-size(top, 50px, 65px);
+//   bottom: 10px;
+// }

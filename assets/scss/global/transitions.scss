@@ -1,0 +1,85 @@
+$STEP: 15px;
+$DIRECTION: translateY;
+
+$enter: step-enter;
+$leave: step-leave;
+
+%step-absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+// @@@@@ RIGHT MODE ----->
+.r-#{$leave}-active, .r-#{$enter}-active {
+  transition-property: transform, opacity;
+  transition-timing-function: var(--t-light);
+}
+
+.r-#{$leave}-active {
+  transition-duration: 150ms;
+}
+.r-#{$enter}-active {
+  transition-duration: 200ms;
+  transition-delay: 150ms;
+}
+/** Leave */
+.r-#{$leave} {
+  @extend %step-absolute;
+  transform: none;
+}
+.r-#{$leave}-to {
+  @extend %step-absolute;
+  transform: #{"#{$DIRECTION}(-#{$STEP})"};
+  opacity: 0;
+}
+/** Enter */
+.r-#{$enter} {
+  transform: #{"#{$DIRECTION}(#{$STEP})"};
+  opacity: 0;
+}
+.r-#{$enter}-to {
+  transform: none;
+}
+
+
+
+// @@@@@ LEFT MODE <-----
+.l-#{$leave}-active, .l-#{$enter}-active {
+  transition-property: transform, opacity;
+  transition-timing-function: var(--t-light);
+}
+.l-#{$enter}-active {
+  transition-delay: 150ms;
+  transition-duration: 200ms;
+}
+.l-#{$leave}-active {
+  transition-duration: 150ms;
+}
+/** Leave */
+.l-#{$leave} {
+  @extend %step-absolute;
+  transform: none;
+}
+.l-#{$leave}-to {
+  @extend %step-absolute;
+  transform: #{"#{$DIRECTION}(#{$STEP})"};
+  opacity: 0;
+}
+/** Enter */
+.l-#{$enter} {
+  transform: #{"#{$DIRECTION}(-#{$STEP})"};
+  opacity: 0;
+}
+.l-#{$enter}-to {
+  transform: none;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+}

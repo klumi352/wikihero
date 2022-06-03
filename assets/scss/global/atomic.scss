@@ -1,0 +1,340 @@
+//
+//
+
+/* aligns */
+.a-tac {
+  text-align: center;
+}
+
+.a-tal {
+  text-align: left;
+}
+
+.a-tar {
+  text-align: right;
+}
+
+.a-vam {
+  vertical-align: middle;
+}
+
+.a-tar--mobile {
+  @include media-to(sm) {
+    text-align: right !important;
+  }
+}
+//
+//
+
+/* sizes */
+.a-mw100vw {
+  max-width: 100vw;
+}
+
+.a-mw400px {
+  max-width: 400px;
+}
+
+.a-mw500px {
+  max-width: 500px;
+}
+
+.a-mw600px {
+  max-width: 600px;
+}
+
+.a-mw700px {
+  max-width: 700px;
+}
+
+.a-mw800px {
+  max-width: 800px;
+}
+//
+//
+
+/* positions */
+.a-pr {
+  position: relative;
+}
+
+.a-pa {
+  position: absolute;
+}
+//
+//
+
+/* colors */
+.a-cb {
+  color: var(--c-brand);
+}
+
+.a-cblack {
+  color: var(--c-black);
+}
+
+.a-cwhite {
+  color: var(--c-white);
+}
+//
+//
+
+/* paddings */
+.a-p0 {
+  padding: 0 !important;
+}
+
+/* margins */
+.a-m0 {
+  margin: 0 !important;
+}
+
+.a-mt-0 {
+  margin-top: 0 !important;
+}
+
+.a-mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.a-mlr0 {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.a-mtb-0 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.a-mb-5 {
+  margin-bottom: 5px !important;
+}
+
+.a-mb-10 {
+  margin-bottom: 10px !important;
+}
+
+.a-mb-15 {
+  margin-bottom: 15px;
+}
+
+.a-mb-20 {
+  margin-bottom: 20px;
+}
+
+.a-mtb-20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.a-m-15-30 {
+  @include fluid-size('margin-top', 15px, 30px);
+  @include fluid-size('margin-bottom', 15px, 30px);
+}
+
+.a-m-20-40 {
+  @include fluid-size('margin-top', 20px, 40px);
+  @include fluid-size('margin-bottom', 20px, 40px);
+}
+
+.a-m-30-50 {
+  @include fluid-size('margin-top', 30px, 50px);
+  @include fluid-size('margin-bottom', 30px, 50px);
+}
+
+.a-mt-30-50 {
+  @include fluid-size('margin-top', 30px, 50px);
+}
+
+.a-mt-10-20 {
+  @include fluid-size('margin-top', 10px, 20px);
+}
+
+.a-mb-10-20 {
+  @include fluid-size('margin-bottom', 10px, 20px);
+}
+
+.a-mt-20-40 {
+  @include fluid-size('margin-top', 20px, 40px);
+}
+
+.a-mt-30-60 {
+  @include fluid-size('margin-top', 30px, 60px);
+}
+
+.a-mt-40-80 {
+  @include fluid-size('margin-top', 40px, 80px);
+}
+
+.a-mb-40-80 {
+  @include fluid-size('margin-bottom', 40px, 80px);
+}
+
+.a-mt-60-100 {
+  @include fluid-size('margin-top', 60px, 100px);
+}
+//
+//
+
+/* families */
+.a-ffr {
+  font-family: $f-regular;
+}
+
+.a-ffb {
+  font-family: $f-bold;
+}
+
+.a-ffp {
+  font-family: $f-paragraph;
+}
+
+.a-ffm {
+  font-family: $f-medium;
+}
+//
+//
+
+/* fonts */
+.a-fz-12-14 {
+  @include fluid-size(font-size, 12px, 14px);
+}
+
+.a-fz-12-15 {
+  @include fluid-size(font-size, 12px, 15px);
+}
+
+.a-fz-14-16 {
+  @include fluid-size(font-size, 14px, 16px);
+}
+
+.a-fz-16-18 {
+  @include fluid-size(font-size, 16px, 18px);
+}
+
+.a-fz-18-20 {
+  @include fluid-size(font-size, 18px, 20px);
+}
+
+.a-fz-18-20 {
+  @include fluid-size(font-size, 18px, 20px);
+}
+
+.a-fz-23-27 {
+  @include fluid-size(font-size, 23px, 27px);
+}
+
+.a-fz-16 {
+  font-size: 16px;
+}
+
+.a-fz-18 {
+  font-size: 18px !important;
+}
+//
+//
+
+/* overflow */
+.a-oh {
+  overflow: hidden;
+}
+
+.a-dinb {
+  display: inline-block;
+}
+
+.a-dn {
+  display: none !important;
+}
+//
+//
+
+/* svg */
+.a-svg-white {
+  path {
+    fill: var(--c-white);
+  }
+}
+
+.a-svg-black {
+  path {
+    fill: var(--c-black);
+  }
+}
+
+.a-svg-brand {
+  path {
+    fill: var(--c-brand);
+  }
+}
+
+.a-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.a-df {
+  display: flex;
+}
+
+.a-gap {
+  gap: 1rem;
+}
+
+.a-fg {
+  flex-grow: 1;
+}
+
+.a-jcc {
+  justify-content: center;
+}
+
+.a-aic {
+  align-items: center;
+}
+
+.a-jcsb {
+  justify-content: space-between;
+}
+
+.a-aic {
+  align-items: center;
+}
+
+.a-fdc {
+  flex-direction: column;
+}
+
+.a-fww {
+  flex-wrap: wrap;
+}
+
+.a-fwnw {
+  flex-wrap: nowrap;
+}
+
+.a-fdr {
+  flex-direction: row;
+}
+
+.a-jcfe {
+  justify-content: flex-end;
+}
+
+.a-rot90 {
+  transform: rotate(90deg);
+}
+
+.a-rot-90 {
+  transform: rotate(-90deg);
+}
+
+.a-rot180 {
+  transform: rotate(180deg);
+}
+
+.a-rot-180 {
+  transform: rotate(-180deg);
+}

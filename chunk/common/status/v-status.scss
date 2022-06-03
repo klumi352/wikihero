@@ -1,0 +1,146 @@
+.status-wrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(white, 0.7);
+  backdrop-filter: blur(2px);
+  border-radius: 30px;
+  margin-left: -20px;
+  padding: 0 20px;
+  max-width: 650px;
+}
+
+.status {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  position: relative;
+  margin: 7px 0 5px;
+  height: 12px;
+  width: 100%;
+  border: 1px solid var(--c-grey-light);
+  background-color: var(--c-grey-superlight);
+  border-radius: 6px;
+
+  @include media-to(sm) {
+    height: 10px;
+  }
+}
+
+.img {
+  border-radius: 50%;
+}
+
+.bar {
+  height: 100%;
+  position: relative;
+  top: -2px;
+  left: -2px;  
+  height: 14px;
+
+  border-radius: 6px;
+  background-color: var(--c-brand);
+  transition: all 1s var(--t-light);
+
+  &--initial {
+    background-color: var(--c-brand);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &--new {
+    z-index: 2;
+    background-color: #9847FF;
+    background-image: linear-gradient(to right, var(--c-brand), #9847FF);
+
+    &:nth-child(2) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .status-wrapper:not(.noAnimation) & {
+      &.animation {
+        width: 0 !important;
+      } 
+    }       
+  }
+
+  @include media-to(sm) {
+    top: -2px;
+    height: 12px;
+  }
+}
+
+.level-count {
+  height: 1em;
+  width: 50px;
+  vertical-align: top;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+}
+
+.level-count-wrap {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+
+  .status-wrapper.noAnimation &,
+  .status-wrapper:not(.isLevelUp) & {
+    transform: translateY(-50%);
+  }
+
+  .status-wrapper.isLevelUp:not(.noAnimation) & {
+    animation: toTop 1s 1.8s var(--t-bounce) alternate both;
+
+    @keyframes toTop {
+      to {
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+
+
+
+
+.status-current {
+  display: flex;
+  align-items: flex-start;
+
+  img {
+    @include fluid-size(width, 50px, 110px);
+    @include fluid-size(height, 50px, 110px);
+  }
+}
+
+.status-main {
+  flex-grow: 1;
+  padding: 0 20px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.status-next {
+  white-space: nowrap;
+  text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+
+  img {    
+    @include fluid-size(width, 35px, 40px);
+    @include fluid-size(height, 35px, 40px);
+  }
+}
+
+.name {
+  max-width: none!important;
+}

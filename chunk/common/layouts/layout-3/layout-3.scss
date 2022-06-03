@@ -1,0 +1,79 @@
+.layout {
+
+  display: flex;
+  @include fluid-size('margin-top', 150px, 165px);
+  @include fluid-size('margin-bottom', 60px, 140px);
+  min-height: 100vh;
+
+  &.noMinHeight {
+    min-height: initial;
+    margin-bottom: 0;
+  }
+
+  &.nestedLayout {
+    margin-top: 0;
+  }
+
+  &.lastOne {
+    @include fluid-size('margin-bottom', 60px, 140px);
+  }
+
+  &__container {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    max-width: 1310px;
+  }
+
+  &__container-main {
+    flex: 0 0 788px;
+    padding: 0 var(--container-padding-small);
+
+    @include media-from(sm) {
+      padding: 0 var(--container-padding);
+    }
+
+    @include media-to(sm-extra) {
+      max-width: 100%;
+      min-width: unset;
+    }
+  }
+
+  &__container-chunk {
+    flex: 0 1 261px;
+
+    @include media-to(sm-extra) {
+      display: none;
+    }
+  }
+
+  &__chunk-wrap {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    @include default-observer;
+
+    &.withTitle {
+      margin-top: 45px;
+    }
+
+    &.topUse {
+      margin-top: 61px;
+    }
+    
+    @include media-to(lg-plus) {
+      margin-right: 20px;
+    }
+
+    @include media-to(lg-mid) {
+      display: none;
+    }
+  }
+
+  &__main-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+}

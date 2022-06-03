@@ -1,0 +1,375 @@
+.quill {
+  overflow: hidden;
+  position: relative;
+  margin: 35px 0 0;
+  padding: 0 0 35px;
+  min-height: 200px;
+
+  &.withToolbar.post-quill {
+    margin: 0;
+    padding: 0;
+    min-height: 130px;
+
+    /deep/ {
+      .ql-editor {
+        min-height: auto;
+        max-height: none;
+        border-bottom: none;
+        p {
+          margin-top: 0;
+        }
+        &.ql-blank::before {
+          margin: 0;
+          font-size: 20px;
+          line-height: 1.8;
+          letter-spacing: -0.01em;
+          color: var(--c-black);
+        }
+      }
+    }
+  }
+
+  .useInComment & {
+    margin: 0;
+    padding: 0;
+    min-height: unset;
+  }
+
+  &.withToolbar {
+    min-height: 445px;
+
+    /deep/ {
+      .ql-editor {
+        min-height: 350px;
+        max-height: 350px;
+      }
+
+      .ql-toolbar {
+        margin-bottom: 0.7em;
+      }
+    }
+  }
+
+  &.isFocus,
+  &.isValue {
+    /deep/ {
+      .ql-editor {
+        border-color: var(--c-brand);
+      }
+    }
+  }
+
+  /deep/ {
+    .custom-label {
+      display: inline-block;
+      height: 24px;
+      padding: 3px 5px;
+      width: 28px;
+    }
+
+    .image-uploading {
+      &:before {
+        border-top-color: var(--c-brand);
+      }
+    }
+
+    .ql-container {
+      border: none !important;
+    }
+
+    .ql-editor {
+      min-height: 200px;
+      max-height: 200px;
+      padding: 0;
+      border-bottom: 1px solid var(--c-grey);
+      padding-right: 5px !important;
+
+      .useInComment & {
+        min-height: 56px;
+        max-height: none;
+
+        p {
+          min-height: 26px;
+          margin: 13px 0;
+        }
+      }
+
+      &.ql-blank::before {
+        margin: 0.7em 0;
+      }
+
+      img {
+        margin: 1em 0 0;
+        max-width: 51%;
+        width: 100%;
+
+        @include media-to(xs-plus) {
+          max-width: 90%;
+        }
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      b {
+        font-family: $f-medium;
+        margin: 0.8em 0 0.5em;
+      }
+
+      p {
+        margin: 0.7em 0;
+      }
+
+      * {
+        @include fluid-size(font-size, 18px, 20px);
+        color: var(--c-black);
+        font-family: $f-regular;
+      }
+
+      &:before {
+        left: 0;
+        font-style: normal;
+        font-weight: normal;
+        font-family: $f-regular;
+        color: var(--c-grey-dark);
+        @include fluid-size('font-size', 18px, 20px);
+      }
+    }
+
+    .ql-tooltip {
+      position: absolute !important;
+      bottom: 35% !important;
+      left: 25% !important;
+      top: unset !important;
+      max-width: 372px;
+      margin: 0 !important;
+      border: none;
+      font-family: $f-regular !important;
+      padding: 10px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      // box-shadow: none;
+      // left: 0 !important;
+
+      @include media-to(sm) {
+        left: 5% !important;
+      }
+
+      @include media-to(xs-mid) {
+        left: 0 !important;
+        max-width: 100%;
+        padding: 5px;
+
+        .ql-action::after {
+          margin-left: 5px;
+        }
+
+        input {
+          width: 100px !important;
+        }
+      }
+
+      @include media-to(xss-min) {
+        width: 100%;
+
+        &:before {
+          margin-right: 3px;
+          font-size: 12px !important;
+        }
+
+        .ql-action::after {
+          margin-left: 3px;
+          font-size: 12px !important;
+        }
+
+        input {
+          width: 70px !important;
+          font-size: 12px !important;
+        }
+      }
+
+      &.ql-editing a.ql-action::after {
+        // save
+        content: 'Sauvegarder';
+      }
+
+      & a.ql-action::after {
+        // edit
+        content: 'Editer';
+      }
+
+      & a.ql-remove::before {
+        // remove
+        content: 'Delete';
+      }
+
+      &::before {
+        // visit url
+        content: 'URL de visite: ';
+      }
+
+      &[data-mode='link']::before {
+        // enter link
+        content: 'URL de visite: ';
+      }
+
+      a {
+        color: var(--c-brand);
+
+        &.ql-preview {
+          color: var(--c-dark);
+          font-family: $f-bold;
+        }
+
+        @include hover-state {
+          color: var(--c-brand-light);
+        }
+
+        @include active-state {
+          color: var(--c-brand-dark);
+        }
+      }
+    }
+
+    .ql-toolbar {
+      border: none;
+      background-color: var(--c-grey-superlight);
+    }
+
+    .ql-snow.ql-toolbar .custom-label {
+      cursor: pointer;
+    }
+
+    .ql-snow.ql-toolbar .ql-picker-item {
+      &.ql-selected {
+        color: var(--c-brand);
+      }
+
+      @include hover-state {
+        &:before {
+          color: var(--c-brand);
+        }
+      }
+    }
+
+    .ql-snow.ql-toolbar button,
+    .ql-snow.ql-toolbar .custom-label,
+    .ql-snow.ql-toolbar .ql-picker-label {
+      svg {
+        height: 100%;
+      }
+
+      @include hover-state {
+        color: var(--c-brand);
+
+        .ql-stroke {
+          stroke: var(--c-brand);
+        }
+
+        .ql-fill {
+          fill: var(--c-brand);
+        }
+      }
+
+      @include active-state {
+        opacity: 0.7;
+      }
+    }
+
+    .ql-snow.ql-toolbar .ql-active {
+      color: var(--c-brand);
+
+      .ql-stroke {
+        stroke: var(--c-brand);
+      }
+
+      .ql-fill {
+        fill: var(--c-brand);
+      }
+    }
+  }
+}
+
+.placeholder {
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+  @include fluid-size('font-size', 16px, 20px);
+  white-space: nowrap;
+  line-height: 1;
+  overflow: hidden;
+  max-width: 100%;
+  cursor: text;
+  font-family: $f-regular;
+  color: var(--c-grey-dark);
+  transition: all 0.15s var(--t-bounce), opacity 0.25s;
+  top: 0.3em;
+  left: 0;
+  right: 0;
+
+  .isFocus &,
+  .isValue & {
+    font-size: 14px;
+    transform: translateY(-20px);
+    opacity: 0.4;
+  }
+
+  .useInComment & {
+    top: 19px;
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 101;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: var(--c-preloader);
+  backdrop-filter: grayscale(1);
+  visibility: hidden;
+  opacity: 0;
+  transition-property: opacity, visibility;
+  transition-duration: 0.8s;
+
+  @include media-from(sm) {
+    min-height: auto;
+  }
+
+  /deep/svg {
+    fill: var(--c-brand);
+  }
+
+  &.show {
+    opacity: 1;
+    transition-duration: 0.5s;
+    visibility: visible;
+  }
+}
+
+.error {
+  display: inline-block;
+  position: relative;
+  user-select: none;
+  font-size: 14px;
+  font-family: $f-regular;
+  line-height: 1.3;
+  overflow: hidden;
+  max-width: 100%;
+  color: var(--c-error);
+  transition: all 0.15s var(--t-bounce);
+}
+
+.hidden {
+  appearance: none;
+  position: absolute;
+  z-index: -9999;
+  visibility: hidden;
+  opacity: 0;
+}

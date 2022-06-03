@@ -1,0 +1,247 @@
+.input-wrapper {
+  margin: 25px 0;
+  cursor: text;
+
+  .v-table & {
+    margin: 0 !important;
+  }
+
+  @include media-from(sm) {
+    margin: 25px 0;
+  }
+
+  &.with-error {
+    .modif .input,
+    .input {
+      border-color: var(--c-error);
+    }
+  }
+}
+
+.label {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  transition: all 0.3s;
+
+  .activatedIfFill:not(.isFocus) &:not(.modif) {
+    opacity: 0.4;
+  }
+}
+
+.max-length {
+  position: relative;
+  z-index: 1;
+  float: right;
+  margin-right: 10px;
+  bottom: -50px;
+  min-width: 2.1em;
+  padding: 7px;
+  color: var(--c-white);
+  font-family: $f-regular;
+  line-height: 1.1;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+  transform: translateY(-50%) scale(0.4);
+  transform-origin: center center;
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.3s;
+
+  @include fluid-size('font-size', 12px, 14px);
+
+  @include media-to(md) {
+    right: 0;
+    min-width: 1.9em;
+    padding: 5px;
+  }
+
+  &.visibleSoft {
+    color: var(--c-dark);
+    background-color: var(--c-grey-light);
+    transform: translateY(-50%) scale(1);
+  }
+
+  &.visibleHard {
+    color: var(--c-white);
+    background-color: var(--c-error);
+  }
+
+  .postCreate & {
+    top: 50%;
+    right: 0;
+    margin-right: 0;
+    position: absolute;
+    bottom: initial;
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 13px 0;
+  padding-right: 28px;
+  font-family: $f-regular;
+  background-color: $t;
+  border: none;
+  border-bottom: 1px solid var(--c-grey);
+  border-radius: 0;
+  box-shadow: none;
+  transition: background 0.5s;
+
+  @include fluid-size(font-size, 18px, 20px);
+
+  @include media-to(md) {
+    .maxLength & {
+      padding-right: 2em;
+    }
+  }
+
+  @mixin placeholder-up {
+    border-color: var(--c-brand);
+
+    ~ .placeholder:not(.placeholderFade) {
+      font-size: 14px;
+      transform: translateY(-23px);
+      opacity: 0.4;
+    }
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    @include placeholder-up;
+
+    box-shadow: 0 0 0 1000px var(--c-brand-superlight) inset;
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: var(--c-dark);
+  }
+
+  &[type='file'] {
+    opacity: 0;
+  }
+
+  .with-error.highlightError & {
+    background: var(--c-error-transparent);
+  }
+
+  .input-wrapper.highlight & {
+    background: var(--c-success-transparent);
+  }
+
+  &:disabled {
+    background-color: var(--c-grey-superlight);
+    border-bottom: 1px solid var(--c-grey) !important;
+    user-select: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus,
+  .label.modif & {
+    @include placeholder-up;
+  }
+
+  &:focus {
+    ~ .placeholder.placeholderFade {
+      opacity: 0.4;
+    }
+  }
+
+  .label.modif & {
+    ~ .placeholder.placeholderFade {
+      opacity: 0;
+    }
+  }
+
+  &:focus {
+    ~ .hint {
+      opacity: 0.4;
+    }
+  }
+
+  .label.modif & {
+    ~ .hint {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  .noBorder & {
+    border-bottom: none !important;
+  }
+}
+
+.placeholder {
+  position: absolute;
+  top: calc(50% - 0.55em);
+  right: 0;
+  left: 0;
+  max-width: 100%;
+  color: var(--c-grey-dark);
+  font-family: $f-regular;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: text;
+  transition: all 0.15s var(--t-bounce), opacity 0.25s;
+  user-select: none;
+  pointer-events: none;
+
+  @include fluid-size('font-size', 16px, 20px);
+}
+
+.hint {
+  position: absolute;
+  top: calc(50% - 0.5em);
+  right: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--c-grey-dark);
+  font-family: $f-regular;
+  line-height: 1;
+  white-space: nowrap;
+  text-align: right;
+  cursor: text;
+  transition: all 1s;
+  user-select: none;
+
+  @include fluid-size('font-size', 12px, 14px);
+}
+
+.error {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--c-error);
+  font-size: 14px;
+  font-family: $f-regular;
+  line-height: 1.3;
+  transition: all 0.15s var(--t-bounce);
+  user-select: none;
+}
+
+.success {
+  .modif .input,
+  .input {
+    border-color: var(--c-success);
+  }
+}
+
+.success_checker {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.dis-btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  opacity: 0.3;
+}

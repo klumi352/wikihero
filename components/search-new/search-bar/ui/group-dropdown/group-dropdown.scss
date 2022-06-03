@@ -1,0 +1,112 @@
+.search-bar {
+  &__group-dropdown {
+    position: relative; 
+    transition: all 0.2s;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border: 1px solid #e2e2e2;
+    border-left: none;
+    width: 170px;
+    background-color: var(--c-white);
+
+    @include media-to(xs) {
+      width: 80px;
+    }
+  }
+
+  &__group-dropdown-modal {
+    position: absolute;
+    right: -1px;
+    bottom: -3px;
+    left: -150px;
+    background-color: var(--c-grey-light-2);
+    border: 1px solid var(--c-grey-light-1);
+    border-top-color: var(--c-grey-light-3);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    transform: translateY(95%);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s 0.1s var(--t-bounce);
+    min-height: 50px;
+    max-height: 180px;
+    overflow: hidden;
+    overflow-y: scroll;
+    z-index: 10;
+
+    .openGroupDropdown & {
+      transform: translateY(100%);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    @include media-to(xs) {
+      width: 250px;
+      left: -170px;
+    }
+  }
+
+  &__group-btn {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 6px 35px 6px 15px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    color: var(--c-black);
+    font-size: 15px;
+    line-height: 17px;
+    cursor: pointer;
+
+    // @include media-to(xs) {
+    //   font-size: 12px;
+    //   line-height: 14px;
+    // }
+  }
+
+  &__group-dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+
+    /deep/ {
+      .input-wrapper.with-radio {
+        display: flex;
+        align-items: center;
+        margin: 0;
+      }
+    }
+    
+    label {
+      overflow: hidden;
+      color: var(--c-black);
+      font-size: 15px;
+      line-height: 17px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      display: flex;
+      flex-direction: row-reverse;
+      flex-grow: 1;
+      justify-content: flex-end;
+      cursor: pointer;
+      align-items: center;
+    }
+  }
+
+  &__group-dropdown-list {
+    padding: 10px 0;
+  }
+
+  &__group-btn-arrow {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: rotate(0deg) translateY(-50%);
+    transition: all 0.2s;
+    
+    .openGroupDropdown & {
+      transform: translateY(-50%) rotate(-180deg);
+    }
+  }
+}

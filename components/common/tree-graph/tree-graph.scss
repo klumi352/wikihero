@@ -1,0 +1,39 @@
+/deep/ {
+/** */
+
+.row {
+    display: flex;
+}
+
+.col {
+    width: 50%;
+}
+
+.list-group {
+    padding: 10px;
+}
+
+.list-group-item {
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    background-color: var(--c-grey-light);
+    margin-bottom: 5px;
+    transition: all 0.3s;
+
+    // @include hover-state-deep {
+    //     background-color: var(--c-grey-light);
+    // }
+
+    &.sortable-chosen {
+        background-color: var(--c-success-transparent)!important;
+    }
+}
+
+.arrow path {
+    fill: var(--c-grey);
+}
+
+}

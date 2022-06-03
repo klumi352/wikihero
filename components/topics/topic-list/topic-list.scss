@@ -1,0 +1,34 @@
+.container {  
+  @include default-observer;
+}
+
+.wrapper {
+  @include fluid-size(margin-top, 40px, 80px);
+
+  .topic-hidden & {
+    display: none;
+  }
+}
+
+.buttons {
+  text-align: center;
+  padding: 20px 0 5px;
+}
+
+.not-found {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 20px 40px;
+  text-align: center;
+
+  h3 {
+    color: var(--c-black);
+  }
+
+  @include media-to(sm) {
+    min-height: auto;
+  }
+}

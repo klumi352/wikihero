@@ -1,0 +1,152 @@
+.profile-setting {
+
+  &__seniority-title {
+    color: var(--c-grey-dark);
+    font-size: 14px;
+  }
+
+  &__seniority-input {
+    margin-top: 0;
+  }
+}
+
+.personal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--c-grey-light);
+
+  @include fluid-size(margin-bottom, 30px, 30px);
+}
+
+.block {
+  position: relative;
+
+  &.editMode {
+    &::after {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-color: var(--c-preloader);
+    transition: all 0.5s;
+    content: '';
+  }
+}
+
+.user {
+  &__avatar-wrap {
+    display: flex;
+
+    @include fluid-size('margin-bottom', 50px, 100px);
+
+    @include media-to(xs) {
+      justify-content: center;
+    }
+  }
+
+  &__avatar-subwrap {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 220px / 220px * 100%;
+  }
+
+  &__preloader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0;
+    transition: all 0.3s 0.3s;
+
+    &.show-loader {
+      z-index: 10;
+      opacity: 1;
+      transition: all 0s;
+    }
+  }
+
+  &__edit-btn {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    min-height: auto;
+    padding: 3px 10px 3px 30px;
+    font-size: 16px;
+    line-height: 18px;
+    text-transform: none;
+    border-radius: 8px;
+    transform: translate(-50%, 0);
+  }
+
+  &__edit-ico {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translate(0, -50%);
+  }
+
+  &__avatar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 50%;
+  }
+
+  &__avatar-limit-wrap {
+    width: 220px;
+    max-width: 100%;
+  }
+
+  &__title {
+    color: var(--c-black);
+    line-height: 1.16;
+  }
+
+  &__edit-input {
+    display: none;
+  }
+}
+
+.profile-title {
+  color: var(--c-black);
+
+  @include fluid-size(font-size, 20px, 25px);
+
+  line-height: 1.16;
+}
+
+::v-deep {
+  .vs__selected {
+    margin-left: 0;
+    padding-left: 0;
+    color: #000;
+
+    &-options {
+      padding-left: 0;
+    }
+  }
+}
